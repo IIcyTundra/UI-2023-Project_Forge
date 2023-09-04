@@ -7,29 +7,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [System.Serializable]
-    public class PlayerControls
-    {
-        [Header("Movement Keys")]
-        public KeyCode Jump;
-        public KeyCode Crouch;
-        public KeyCode Sprint;
-
-
-        [Header("Action Keys")]
-        public KeyCode Melee;
-        public KeyCode Grenade;
-        public KeyCode Reload;
-        public KeyCode Fire;
-        public KeyCode AltFunction;
-
-        [Header("UI Keys")]
-        public KeyCode Pause;
-
-    }
-    //Basic Movement Settings
-    #region Standard Movement Settings
-
-    [System.Serializable]
     public class MovementSettings
     {
         public float MaxSpeed;
@@ -43,21 +20,10 @@ public class PlayerController : MonoBehaviour
             Deceleration = decel;
         }
     }
-#endregion
-
-    #region Keybinds
-    [SerializeField] private PlayerControls m_PlayerControls = new PlayerControls();
-    #endregion
-
-    #region  Mouse Aim
 
     [Header("Aiming")]
     [SerializeField] private Camera m_Camera;
     [SerializeField] private MouseLook m_MouseLook = new MouseLook();
-
-    #endregion
-
-    #region Specific Physics Settings
 
     [Header("Movement")]
     [SerializeField] private float m_Friction = 6;
@@ -70,22 +36,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementSettings m_GroundSettings = new MovementSettings(7, 14, 10);
     [SerializeField] private MovementSettings m_AirSettings = new MovementSettings(7, 2, 2);
     [SerializeField] private MovementSettings m_StrafeSettings = new MovementSettings(1, 50, 50);
-        
-
-#endregion
-
 
     /// <summary>
     /// Returns player's current speed.
-    public float Speed { get { return m_Character.velocity.magnitude; } }
     /// </summary>
+    public float Speed { get { return m_Character.velocity.magnitude; } }
 
-
-    #region Script Variables
-
-    public CharacterController m_Character;
+    private CharacterController m_Character;
     private Vector3 m_MoveDirectionNorm = Vector3.zero;
-    public Vector3 m_PlayerVelocity = Vector3.zero;
+    private Vector3 m_PlayerVelocity = Vector3.zero;
 
     // Used to queue the next jump just before hitting the ground.
     private bool m_JumpQueued = false;
@@ -93,13 +52,9 @@ public class PlayerController : MonoBehaviour
     // Used to display real time friction values.
     private float m_PlayerFriction = 0;
 
-    public Vector3 m_MoveInput;
-    public Vector3 m_moveDirection;
+    private Vector3 m_MoveInput;
     private Transform m_Tran;
     private Transform m_CamTran;
-
-    #endregion
-
 
     private void Start()
     {
@@ -111,13 +66,11 @@ public class PlayerController : MonoBehaviour
 
         m_CamTran = m_Camera.transform;
         m_MouseLook.Init(m_Tran, m_CamTran);
-
-            
     }
 
     private void Update()
     {
-        m_moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        m_MoveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         m_MouseLook.UpdateCursorLock();
         QueueJump();
 
@@ -141,20 +94,18 @@ public class PlayerController : MonoBehaviour
     // Queues the next jump.
     private void QueueJump()
     {
-        bool jump = Input.GetButtonDown(m_PlayerControls.Jump.ToString());
-
         if (m_AutoBunnyHop)
         {
-            m_JumpQueued = jump;
+            m_JumpQueued = Input.GetButton("Jump");
             return;
         }
 
-        if (jump && !m_JumpQueued)
+        if (Input.GetButtonDown("Jump") && !m_JumpQueued)
         {
             m_JumpQueued = true;
         }
 
-        if (jump)
+        if (Input.GetButtonUp("Jump"))
         {
             m_JumpQueued = false;
         }
@@ -165,7 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         float accel;
 
-        var wishdir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        var wishdir = new Vector3(m_MoveInput.x, 0, m_MoveInput.z);
         wishdir = m_Tran.TransformDirection(wishdir);
 
         float wishspeed = wishdir.magnitude;
@@ -186,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // If the player is ONLY strafing left or right
-        if (m_moveDirection.z == 0 && m_moveDirection.x != 0)
+        if (m_MoveInput.z == 0 && m_MoveInput.x != 0)
         {
             if (wishspeed > m_StrafeSettings.MaxSpeed)
             {
@@ -211,7 +162,7 @@ public class PlayerController : MonoBehaviour
     private void AirControl(Vector3 targetDir, float targetSpeed)
     {
         // Only control air movement when moving forward or backward.
-        if (Mathf.Abs(m_moveDirection.z) < 0.001 || Mathf.Abs(targetSpeed) < 0.001)
+        if (Mathf.Abs(m_MoveInput.z) < 0.001 || Mathf.Abs(targetSpeed) < 0.001)
         {
             return;
         }
@@ -255,7 +206,7 @@ public class PlayerController : MonoBehaviour
             ApplyFriction(0);
         }
 
-        var wishdir = new Vector3(m_moveDirection.x, 0, m_moveDirection.z);
+        var wishdir = new Vector3(m_MoveInput.x, 0, m_MoveInput.z);
         wishdir = m_Tran.TransformDirection(wishdir);
         wishdir.Normalize();
         m_MoveDirectionNorm = wishdir;
