@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.kitbashery.game-kit": {
+      "version": "file:com.kitbashery.game-kit",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.burst": {
       "version": "1.8.4",
       "depth": 1,
