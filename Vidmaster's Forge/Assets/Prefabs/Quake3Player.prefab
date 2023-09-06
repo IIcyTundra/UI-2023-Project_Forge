@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8646180134440654517}
   - component: {fileID: 8588295691550120124}
   - component: {fileID: 4893477911018069520}
+  - component: {fileID: 1935384597464517939}
+  - component: {fileID: 6652551778013898632}
   m_Layer: 0
   m_Name: Quake3Player
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 3509767348472493801}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8588295691550120124
 CharacterController:
@@ -82,23 +84,50 @@ MonoBehaviour:
     m_Smooth: 0
     m_SmoothTime: 5
     m_LockCursor: 1
-  m_Friction: 6
-  m_Gravity: 20
-  m_JumpForce: 8
+  m_PlayerPhysicsData: {fileID: 0}
   m_AutoBunnyHop: 1
   m_AirControl: 0.3
-  m_GroundSettings:
-    MaxSpeed: 10
-    Acceleration: 20
-    Deceleration: 10
-  m_AirSettings:
-    MaxSpeed: 7
-    Acceleration: 2
-    Deceleration: 2
-  m_StrafeSettings:
-    MaxSpeed: 10
-    Acceleration: 50
-    Deceleration: 50
+--- !u!114 &1935384597464517939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802554361136777276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba5fb71024046749af5e8b7a9b5caf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <invinsible>k__BackingField: 0
+  bonusHealth: {fileID: 0}
+  hitPoints: 100
+  <overhealExpand>k__BackingField: 0
+  <canRegen>k__BackingField: 0
+  regenPoints: 1
+  regenRate: 0.1
+  onReceivedDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onDead:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6652551778013898632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802554361136777276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2266c89ac8fbd1e4aaf40e72d4bfd453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RefreshRate: 4
 --- !u!1 &4179205738374870578
 GameObject:
   m_ObjectHideFlags: 0
