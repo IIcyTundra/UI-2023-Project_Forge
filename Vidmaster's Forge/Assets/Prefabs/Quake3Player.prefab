@@ -84,9 +84,10 @@ MonoBehaviour:
     m_Smooth: 0
     m_SmoothTime: 5
     m_LockCursor: 1
-  m_PlayerPhysicsData: {fileID: 0}
-  m_AutoBunnyHop: 1
-  m_AirControl: 0.3
+  m_PlayerPhysicsData: {fileID: 11400000, guid: aff03a5c172084e42a3c188c4aa590ed,
+    type: 2}
+  m_AutoBunnyHop: 0
+  m_AirControl: 0.2
 --- !u!114 &1935384597464517939
 MonoBehaviour:
   m_ObjectHideFlags: 0
