@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_AutoBunnyHop = false;
     [Tooltip("How precise air control is")]
     [SerializeField] private float m_AirControl = 0.3f;
+    [Tooltip("The Maximum Angle that you can move up a slope")]
+    [SerializeField] private float m_MaxSlopeAngle;
 
     /// <summary>
     /// Returns player's current speed.
@@ -31,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     // Used to display real time friction values.
     private float m_PlayerFriction = 0;
+
+    //Used to detect for slopes
+    private RaycastHit m_slopeHit;
 
     private Vector3 m_MoveInput;
     private Transform m_Tran;
@@ -198,13 +203,34 @@ public class PlayerController : MonoBehaviour
 
         // Reset the gravity velocity
         m_PlayerVelocity.y = -m_PlayerPhysicsData.Gravity * Time.deltaTime;
+        m_PlayerVelocity = IsOnSlope(m_PlayerVelocity);
 
         if (m_JumpQueued)
         {
             m_PlayerVelocity.y = m_PlayerPhysicsData.JumpForce;
             m_JumpQueued = false;
         }
+
+        
     }
+
+    private Vector3 IsOnSlope(Vector3 velocity)
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_Character.height * 0.5f + 0.3f))
+        {
+            var slopeRotation = Quaternion.FromToRotation(Vector3.up, m_slopeHit.normal);
+            var adjustedVelocity = slopeRotation * velocity;
+
+            if(adjustedVelocity.y < 0) 
+            {
+                return adjustedVelocity;
+            }
+        }
+
+        return velocity;
+    }
+
+
 
     private void ApplyFriction(float t)
     {

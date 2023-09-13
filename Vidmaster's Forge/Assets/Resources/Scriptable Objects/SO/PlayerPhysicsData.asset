@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Friction: 5
   Gravity: 9
-  JumpForce: 5
+  JumpForce: 6
   GroundSettings:
-    MaxSpeed: 10
+    MaxSpeed: 12
     Acceleration: 20
     Deceleration: 20
   AirSettings:
