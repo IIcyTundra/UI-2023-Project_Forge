@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Item))]
+[CustomEditor(typeof(Item), true)]
 public class ItemDataEditor : Editor
 {
     public override void OnInspectorGUI()

@@ -10,8 +10,6 @@ public enum ItemRarity
     Legendary
 }
 
-
-[CreateAssetMenu(fileName = "Item", menuName = "BaseItem")]
 public class Item : ScriptableObject
 {
     public ItemRarity rarity;
