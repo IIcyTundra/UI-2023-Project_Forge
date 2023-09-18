@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5034760572067845385}
-  m_Layer: 0
+  - component: {fileID: 6265165726997452927}
+  m_Layer: 6
   m_Name: HYDR4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6265165726997452927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855836371921014696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f3c1d8046d9e749a388af220385bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WeaponData: {fileID: 0}
 --- !u!1 &8638207649544051976
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +57,7 @@ GameObject:
   - component: {fileID: 3180089232679446956}
   - component: {fileID: 3294135627293822966}
   - component: {fileID: 8660551750624742014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SciFi_gun_smg.002 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 8638207649544051976}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5034760572067845385}

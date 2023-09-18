@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac5876d2386d9f49a1ccf2e4977289a, type: 3}
   m_Name: UncommonItem
   m_EditorClassIdentifier: 
-  rarity: 0
+  rarity: 1
   ItemName: 
   Stats:
   - StatModifier: 0

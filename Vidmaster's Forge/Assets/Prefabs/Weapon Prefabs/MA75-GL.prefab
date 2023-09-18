@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 245466705142580224}
   - component: {fileID: 4490042597705437695}
   - component: {fileID: 4698207824273067480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SciFi_gun.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3598999641622438961}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2654296022685897308}
@@ -94,7 +94,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2654296022685897308}
-  m_Layer: 0
+  - component: {fileID: 494082612401905040}
+  m_Layer: 6
   m_Name: MA75-GL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,3 +118,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494082612401905040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436303482568150715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f3c1d8046d9e749a388af220385bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WeaponData: {fileID: 11400000, guid: 48e006e9a33e60848880efd532c1bb22, type: 2}
