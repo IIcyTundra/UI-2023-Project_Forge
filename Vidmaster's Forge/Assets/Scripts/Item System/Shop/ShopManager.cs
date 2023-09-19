@@ -33,7 +33,7 @@ public class ShopManager : MonoBehaviour
             GenerateShopContents();
         }else if (Input.GetKeyDown(KeyCode.J)){
             shopWindow.SetActive(!shopWindow.activeInHierarchy);
-            if(shopWindow.activeInHierarchy){ GenerateShopContents(); }
+            if (shopWindow.activeInHierarchy) { GenerateShopContents(); }
         }
     }
 

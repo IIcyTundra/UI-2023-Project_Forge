@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponMechanics : MonoBehaviour
 {
     [SerializeField] private WeaponData m_WeaponData;
+    [SerializeField] private Transform WeaponMuzzle;
 
     Vector3 recoilSmoothDampVelocity;
     float recoilRotSmoothDampVelocity;
@@ -64,15 +65,8 @@ public class WeaponMechanics : MonoBehaviour
 
             nextShotTime = Time.time + m_WeaponData.msBetweenShots / 1000f;
             // Spawn projectiles
-            foreach (Transform spawn in m_WeaponData.ProjectileSpawns)
-            {
-                if (projectilesRemainingInMag == 0) break;
-                projectilesRemainingInMag--;
-                
-            }
+            SpawnBullet();
 
-            // Eject shell
-            Instantiate(m_WeaponData.shell, m_WeaponData.shellEjection.position, m_WeaponData.shellEjection.rotation);
 
             // Initiate Recoil
             transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
@@ -80,6 +74,17 @@ public class WeaponMechanics : MonoBehaviour
             recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
 
             source.PlayOneShot(m_WeaponData.shootAudio, 1);
+        }
+    }
+
+    private void SpawnBullet()
+    {
+        GameObject bullet = ObjectPools.Instance.GetPooledObject("BulletTest");
+        bullet.transform.SetPositionAndRotation(WeaponMuzzle.position, WeaponMuzzle.rotation);
+        bullet.SetActive(true);
+        if(bullet.GetComponent<Projectile>())
+        {
+            bullet.GetComponent<Projectile>().rigid.AddForce(WeaponMuzzle.forward * m_WeaponData.ProjectileSpeed, ForceMode.Impulse);
         }
     }
 

@@ -57,17 +57,13 @@ public class WeaponManager : MonoBehaviour
 
     public void OnTriggerReleased()
     {
-        if (equippedGun != null)
-        {
+        if (equippedGun != null) 
             equippedGun.OnTriggerReleased();
-        }
     }
 
     public void Reload()
     {
         if (equippedGun != null)
-        {
             equippedGun.Reload();
-        }
     }
 }

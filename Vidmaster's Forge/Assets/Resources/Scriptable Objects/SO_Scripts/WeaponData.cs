@@ -22,8 +22,7 @@ public class WeaponData : ScriptableObject
     public float reloadTime = 0.3f;
 
     [Header("Projectile")]
-    public Projectile projectile;
-    public Transform[] ProjectileSpawns;
+    public float ProjectileSpeed;
 
     [Header("Effects")]
     public Transform shell;

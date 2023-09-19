@@ -176,9 +176,9 @@ MonoBehaviour:
   eventCollider: {fileID: 0}
   rigid: {fileID: 5972556468922716635}
   applyForceOnImpact: 1
-  impactForce: 1
+  impactForce: 0
   velocity: 500
-  modifyHealthOnImpact: 0
+  modifyHealthOnImpact: 1
   healthEffect:
     name: 
     modifier: 0
