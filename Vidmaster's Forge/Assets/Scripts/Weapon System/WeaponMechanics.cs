@@ -63,7 +63,7 @@ public class WeaponMechanics : MonoBehaviour
             }
 
 
-            nextShotTime = Time.time + m_WeaponData.msBetweenShots / 1000f;
+            nextShotTime = Time.time + m_WeaponData.RateOfFire;
             // Spawn projectiles
             SpawnBullet();
 

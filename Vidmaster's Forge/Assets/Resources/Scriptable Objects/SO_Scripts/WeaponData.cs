@@ -2,6 +2,8 @@ using Kitbashery.Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
+
 public enum FireMode
 {
     Single,
@@ -17,7 +19,7 @@ public class WeaponData : ScriptableObject
     public float MuzzleVelocity;
     public FireMode fireMode = FireMode.Single;
     public int burstCount;
-    public float msBetweenShots = 100;
+    [Range(0.1f, 1.0f)] public float RateOfFire = 100;
     public int ProjectilesPerMag;
     public float reloadTime = 0.3f;
 

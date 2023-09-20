@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MuzzleVelocity: 0
   fireMode: 2
-  burstCount: 3
-  msBetweenShots: 150
+  burstCount: 5
+  msBetweenShots: 130
   ProjectilesPerMag: 75
   reloadTime: 0.3
   ProjectileSpeed: 10
@@ -23,7 +23,7 @@ MonoBehaviour:
   shellEjection: {fileID: 0}
   shootAudio: {fileID: 8300000, guid: d01e7495d437f3042ab644b4de5a1575, type: 3}
   reloadAudio: {fileID: 8300000, guid: 6d7bbba672d15c74288d779bcccc57e4, type: 3}
-  kickMinMax: {x: 0.05, y: 0.2}
-  recoilAngleMinMax: {x: 2, y: 3}
+  kickMinMax: {x: 0.02, y: 0.1}
+  recoilAngleMinMax: {x: 1, y: 3}
   recoilMoveSettleTime: 0.2
   recoilRotationSettleTime: 0.2

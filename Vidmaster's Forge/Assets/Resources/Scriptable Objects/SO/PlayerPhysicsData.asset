@@ -21,9 +21,9 @@ MonoBehaviour:
     Deceleration: 20
   AirSettings:
     MaxSpeed: 5
-    Acceleration: 20
-    Deceleration: 20
+    Acceleration: 10
+    Deceleration: 10
   StrafeSettings:
     MaxSpeed: 10
-    Acceleration: 50
-    Deceleration: 50
+    Acceleration: 20
+    Deceleration: 20
