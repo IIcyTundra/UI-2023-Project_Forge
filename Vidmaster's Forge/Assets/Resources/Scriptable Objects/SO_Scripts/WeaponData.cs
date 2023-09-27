@@ -19,9 +19,10 @@ public class WeaponData : ScriptableObject
     public float MuzzleVelocity;
     public FireMode fireMode = FireMode.Single;
     public int burstCount;
-    [Range(0.1f, 1.0f)] public float RateOfFire = 100;
+    public float RateOfFire; //rounds per second
     public int ProjectilesPerMag;
     public float reloadTime = 0.3f;
+    public float WeaponRange;
 
     [Header("Projectile")]
     public float ProjectileSpeed;
@@ -29,8 +30,8 @@ public class WeaponData : ScriptableObject
     [Header("Effects")]
     public Transform shell;
     public Transform shellEjection;
-    public AudioClip shootAudio;
-    public AudioClip reloadAudio;
+    public AudioClip[] ShootAudio;
+    public AudioClip[] ReloadAudio;
 
     [Header("Recoil")]
     public Vector2 kickMinMax = new Vector2(.05f, .2f);

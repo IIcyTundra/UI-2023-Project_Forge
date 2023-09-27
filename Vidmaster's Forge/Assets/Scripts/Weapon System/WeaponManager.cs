@@ -8,8 +8,10 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private WeaponMechanics[] Guns;
     WeaponMechanics equippedGun;
 
+
     public void Start()
     {
+        
         if (Guns[0] != null)
             EquipGun(0);
     }

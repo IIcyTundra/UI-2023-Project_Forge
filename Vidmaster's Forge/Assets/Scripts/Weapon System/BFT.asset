@@ -15,11 +15,10 @@ MonoBehaviour:
   MuzzleVelocity: 0
   fireMode: 0
   burstCount: 0
-  msBetweenShots: 100
+  RateOfFire: 1
   ProjectilesPerMag: 0
   reloadTime: 0.3
-  projectile: {fileID: 0}
-  ProjectileSpawns: []
+  ProjectileSpeed: 0
   shell: {fileID: 0}
   shellEjection: {fileID: 0}
   shootAudio: {fileID: 0}
