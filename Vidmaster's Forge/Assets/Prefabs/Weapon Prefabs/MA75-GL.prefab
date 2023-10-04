@@ -62,7 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8478595162158747478}
-  - {fileID: 6839959145409819210}
+  - {fileID: 5537131026461515499}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,7 +177,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &6442069306542609825
+--- !u!1001 &5430617850697300224
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -244,12 +244,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 56a1a4ae12d70df4dae743091f782a2b, type: 2}
+      objectReference: {fileID: 2100000, guid: 60b53d0c9170c68489776b1e34df79fc, type: 2}
     - target: {fileID: -7511558181221131132, guid: 443b1da67d49a0a499d871385ac57c2b,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 2a828c548b639104f86a42b4867545b5, type: 2}
+      objectReference: {fileID: 2100000, guid: 60b53d0c9170c68489776b1e34df79fc, type: 2}
     - target: {fileID: -7511558181221131132, guid: 443b1da67d49a0a499d871385ac57c2b,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
@@ -265,19 +265,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: blasterD
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 443b1da67d49a0a499d871385ac57c2b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 443b1da67d49a0a499d871385ac57c2b, type: 3}
---- !u!4 &6839959145409819210 stripped
+--- !u!4 &5537131026461515499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 443b1da67d49a0a499d871385ac57c2b,
     type: 3}
-  m_PrefabInstance: {fileID: 6442069306542609825}
+  m_PrefabInstance: {fileID: 5430617850697300224}
   m_PrefabAsset: {fileID: 0}

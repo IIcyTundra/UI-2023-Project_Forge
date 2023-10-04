@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.brunomikoski.scriptableobjectcollection": {
+      "version": "2.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.kitbashery.game-kit": {
       "version": "file:com.kitbashery.game-kit",
       "depth": 0,
@@ -54,6 +61,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.6.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -170,6 +186,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "se.hertzole.scriptable-values": {
+      "version": "https://github.com/Hertzole/scriptable-values.git#package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a5eaf24b41e80d18e4aca190b5c92a16a2a9f85a"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

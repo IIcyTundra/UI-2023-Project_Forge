@@ -119,21 +119,19 @@ public class WeaponMechanics : MonoBehaviour
     private void SpawnBullet(Vector3 shootPoint)
     {
         GameObject bullet = ObjectPools.Instance.GetPooledObject(0);
-        foreach(Transform muzzle in WeaponMuzzles)
+        for(int i = 0; i < WeaponMuzzles.Length; i++)
         {
-            bullet.transform.SetPositionAndRotation(muzzle.position, Quaternion.LookRotation(shootPoint));
-        }
-        bullet.SetActive(true);
+            bullet.transform.SetPositionAndRotation(WeaponMuzzles[i].position, Quaternion.Euler(shootPoint));
+            bullet.SetActive(true);
 
-
-        if(bullet.GetComponent<Projectile>())
-        {
-            foreach (Transform muzzle in WeaponMuzzles)
+            if (bullet.GetComponent<Projectile>())
             {
-                bullet.GetComponent<Projectile>().rigid.AddForce(muzzle.forward * m_WeaponData.ProjectileSpeed, ForceMode.Impulse);
+                bullet.GetComponent<Projectile>().rigid.AddForce(WeaponMuzzles[i].forward * m_WeaponData.ProjectileSpeed, ForceMode.Impulse);
             }
-            
         }
+            
+       
+        
     }
 
     public void Reload()

@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: FNTA
   m_EditorClassIdentifier: 
   MuzzleVelocity: 0
-  fireMode: 2
-  burstCount: 0
-  RateOfFire: 1000
+  fireMode: 1
+  burstCount: 3
+  RateOfFire: 7.5
   ProjectilesPerMag: 60
   reloadTime: 0.3
+  WeaponRange: 0
   ProjectileSpeed: 10
   shell: {fileID: 0}
   shellEjection: {fileID: 0}
-  shootAudio: {fileID: 0}
-  reloadAudio: {fileID: 0}
+  ShootAudio:
+  - {fileID: 8300000, guid: 1e35fbbc899b73f4da325ce99692887f, type: 3}
+  ReloadAudio:
+  - {fileID: 8300000, guid: 05824dd4305856c4d8e0e65c41a28e37, type: 3}
+  - {fileID: 8300000, guid: 33bf74dffb4dc6b45bf1753ed92a7b10, type: 3}
+  - {fileID: 8300000, guid: 0429a813ea64a4b449ab7bdbf07676d5, type: 3}
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMoveSettleTime: 0.1
