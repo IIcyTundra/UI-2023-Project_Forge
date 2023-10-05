@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Hertzole.ScriptableValues;
 using TMPro;
 using UnityEngine;
 
 public class ConfirmDialogue : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI confirmationDialogue, staticPurchaseText, creditsRemaining;
+    [SerializeField] private ShopManager shopManager;
     
     public enum ConfirmationType
     {
@@ -35,9 +37,11 @@ public class ConfirmDialogue : MonoBehaviour
                 break;
             case ConfirmationType.RefreshShop:
                 confirmationDialogue.SetText("Are you sure you want to refresh the shop?");
+                creditsRemaining.SetText(shopManager.GetTransactionSummery(false));
                 break;
             case ConfirmationType.PurchaseItem:
                 confirmationDialogue.SetText("Are you sure you want to purchase this item?");
+                creditsRemaining.SetText(shopManager.GetTransactionSummery(true));
                 break;
             default:
                 confirmationDialogue.SetText("Are you sure?");  

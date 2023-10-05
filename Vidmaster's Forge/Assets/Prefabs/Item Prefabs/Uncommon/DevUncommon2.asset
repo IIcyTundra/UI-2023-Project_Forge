@@ -19,7 +19,7 @@ MonoBehaviour:
   itemStats:
   - isMultiplier: 0
     StatModifier: 5
-    StatToModify: Stat 1
+    StatToModify: {fileID: 11400000, guid: 0edc5ee53cf412a4ab05a0186ec103f5, type: 2}
   - isMultiplier: 0
     StatModifier: -6
-    StatToModify: Stat 2
+    StatToModify: {fileID: 11400000, guid: ea4635fe6cc4a634b9e214b965ce48bb, type: 2}

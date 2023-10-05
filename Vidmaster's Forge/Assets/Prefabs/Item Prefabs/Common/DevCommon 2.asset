@@ -17,5 +17,6 @@ MonoBehaviour:
   itemCost: 0
   itemIcon: {fileID: 0}
   itemStats:
-  - StatModifier: -1
-    StatToModify: Stat
+  - isMultiplier: 0
+    StatModifier: -1
+    StatToModify: {fileID: 11400000, guid: 99e94975f62bb814393c40bb04dc4e0c, type: 2}
