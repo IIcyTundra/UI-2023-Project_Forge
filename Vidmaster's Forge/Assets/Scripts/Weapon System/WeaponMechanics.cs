@@ -129,9 +129,7 @@ public class WeaponMechanics : MonoBehaviour
                 bullet.GetComponent<Projectile>().rigid.AddForce(WeaponMuzzles[i].forward * m_WeaponData.ProjectileSpeed, ForceMode.Impulse);
             }
         }
-            
-       
-        
+              
     }
 
     public void Reload()

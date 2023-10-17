@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4893477911018069520}
   - component: {fileID: 1935384597464517939}
   - component: {fileID: 6652551778013898632}
-  - component: {fileID: 456264895126471769}
   m_Layer: 0
   m_Name: Quake3Player
   m_TagString: Untagged
@@ -131,37 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RefreshRate: 4
---- !u!114 &456264895126471769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802554361136777276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2dea5b6d9dec99249bf408c6e191f410,
-    type: 3}
-  m_NotificationBehavior: 3
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerActionMap
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &4179205738374870578
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +415,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1676915251627269980}
-  - component: {fileID: 7370646047457661410}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -470,21 +437,6 @@ Transform:
   m_Father: {fileID: 8041176180400412322}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7370646047457661410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088479759962770591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac0f0579f317764bbca3e7d7679b914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponHold: {fileID: 1676915251627269980}
-  Guns:
-  - {fileID: 494082612401905040, guid: e590d408953d15f4e98d57af893dc7dc, type: 3}
 --- !u!1 &6886387462905817371
 GameObject:
   m_ObjectHideFlags: 0

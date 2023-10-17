@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: PlayerPhysicsData
   m_EditorClassIdentifier: 
   Friction: 5
-  Gravity: 9
+  Gravity: 15
   JumpForce: 6
   GroundSettings:
-    MaxSpeed: 12
-    Acceleration: 20
-    Deceleration: 20
+    MaxSpeed: 8
+    Acceleration: 15
+    Deceleration: 15
   AirSettings:
     MaxSpeed: 5
-    Acceleration: 10
-    Deceleration: 10
+    Acceleration: 15
+    Deceleration: 15
   StrafeSettings:
-    MaxSpeed: 10
-    Acceleration: 20
-    Deceleration: 20
+    MaxSpeed: 8
+    Acceleration: 15
+    Deceleration: 15
