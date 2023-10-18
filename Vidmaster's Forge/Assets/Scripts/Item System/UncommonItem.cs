@@ -6,14 +6,12 @@ public class UncommonItem : Item
     private Color32 rarityColor = Color.green;
     private readonly ItemRarity itemRarity = ItemRarity.Uncommon;
 
-
-    //Temporarily the same for every item rarity for testing purposes, eventually the plan is to have stats have color and more info
     public override string GetItemDescription()
     {
         string statString = "";
         for(int i = 0; i < ItemStats.Count; i++)
         {
-            statString += $"\n{ItemStats[i].StatModifier.ToString()} {ItemStats[i].StatToModify}";
+            statString += $"\n{ItemStats[i].StatModifier.ToString()} {ItemStats[i].StatToModify.name}";
         }
 
         return $"Rarity: {itemRarity} \nCost: {ItemCost} \n\nEffects: {statString}";

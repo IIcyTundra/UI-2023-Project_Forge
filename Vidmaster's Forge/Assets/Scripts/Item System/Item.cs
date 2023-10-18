@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Hertzole.ScriptableValues;
 
 //Rarity Enum for items
 public enum ItemRarity
@@ -62,7 +63,7 @@ public class ItemStats
 {
     public bool isMultiplier = false; //If multiplier stat, true, if additive, false
     public float StatModifier;
-    public string StatToModify;    //temporarily using a string to do this
+    public ScriptableValue StatToModify; //Accepts any stat to modify
 }
 
 
