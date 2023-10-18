@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43171fd1f78fd6b43932ad229364bf0b, type: 3}
   m_Name: PlayerPhysicsData
   m_EditorClassIdentifier: 
-  Friction: 5
+  Friction: 7
   Gravity: 15
   JumpForce: 6
   GroundSettings:
     MaxSpeed: 8
-    Acceleration: 15
-    Deceleration: 15
+    Acceleration: 10
+    Deceleration: 10
   AirSettings:
     MaxSpeed: 5
-    Acceleration: 15
-    Deceleration: 15
+    Acceleration: 2
+    Deceleration: 2
   StrafeSettings:
     MaxSpeed: 8
-    Acceleration: 15
-    Deceleration: 15
+    Acceleration: 2
+    Deceleration: 2
