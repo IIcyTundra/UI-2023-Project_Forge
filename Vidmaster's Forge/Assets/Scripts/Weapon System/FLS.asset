@@ -15,15 +15,17 @@ MonoBehaviour:
   MuzzleVelocity: 0
   fireMode: 0
   burstCount: 0
-  msBetweenShots: 100
+  RateOfFire: 2
   ProjectilesPerMag: 0
   reloadTime: 0.3
-  projectile: {fileID: 0}
-  ProjectileSpawns: []
-  shell: {fileID: 0}
-  shellEjection: {fileID: 0}
-  shootAudio: {fileID: 0}
-  reloadAudio: {fileID: 0}
+  WeaponRange: 0
+  BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
+    type: 3}
+  ShootAudio:
+  - {fileID: 8300000, guid: 36924bda64d10d64391085030f673d01, type: 3}
+  - {fileID: 8300000, guid: 74956c1edaf36724cbfbb2cc4bb9bac7, type: 3}
+  - {fileID: 8300000, guid: 371a70f042f222e4488533884d635d47, type: 3}
+  - {fileID: 8300000, guid: a108a4c658583c44990b39ca499bea3f, type: 3}
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMoveSettleTime: 0.1

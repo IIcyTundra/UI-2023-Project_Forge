@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public float Speed { get { return m_Character.velocity.magnitude; } }
 
-    private CharacterController m_Character;
+    [HideInInspector] public CharacterController m_Character;
     private Vector3 m_MoveDirectionNorm = Vector3.zero;
-    private Vector3 m_PlayerVelocity = Vector3.zero;
+    [HideInInspector] public Vector3 m_PlayerVelocity = Vector3.zero;
 
     // Used to queue the next jump just before hitting the ground.
     private bool m_JumpQueued = false;
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 
         // Reset the gravity velocity
         m_PlayerVelocity.y = -m_PlayerPhysicsData.Gravity * Time.deltaTime;
-        m_PlayerVelocity = IsOnSlope(m_PlayerVelocity);
+        //m_PlayerVelocity = IsOnSlope(m_PlayerVelocity);
 
         if (m_JumpQueued)
         {
@@ -214,21 +214,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private Vector3 IsOnSlope(Vector3 velocity)
-    {
-        if(Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_Character.height * 0.5f + 0.3f))
-        {
-            var slopeRotation = Quaternion.FromToRotation(Vector3.up, m_slopeHit.normal);
-            var adjustedVelocity = slopeRotation * velocity;
+    //private Vector3 IsOnSlope(Vector3 velocity)
+    //{
+    //    if(Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_Character.height * 0.5f + 0.3f))
+    //    {
+    //        var slopeRotation = Quaternion.FromToRotation(Vector3.up, m_slopeHit.normal);
+    //        var adjustedVelocity = slopeRotation * velocity;
 
-            if(adjustedVelocity.y < 0) 
-            {
-                return adjustedVelocity;
-            }
-        }
+    //        if(adjustedVelocity.y < 0) 
+    //        {
+    //            return adjustedVelocity;
+    //        }
+    //    }
 
-        return velocity;
-    }
+    //    return velocity;
+    //}
 
 
 

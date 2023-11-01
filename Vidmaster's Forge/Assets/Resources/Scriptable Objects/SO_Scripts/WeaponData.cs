@@ -25,13 +25,12 @@ public class WeaponData : ScriptableObject
     public float WeaponRange;
 
     [Header("Projectile")]
-    public float ProjectileSpeed;
+    public GameObject BulletPrefab;
 
     [Header("Effects")]
-    public Transform shell;
-    public Transform shellEjection;
+    //public Transform shell;
+    //public Transform shellEjection;
     public AudioClip[] ShootAudio;
-    public AudioClip[] ReloadAudio;
 
     [Header("Recoil")]
     public Vector2 kickMinMax = new Vector2(.05f, .2f);

@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4852353635d93214382fd0656be5d94b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4852353635d93214382fd0656be5d94b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4852353635d93214382fd0656be5d94b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4852353635d93214382fd0656be5d94b,
         type: 3}
@@ -107,6 +107,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletTest Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: velocity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: isTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: maxCollisions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: applyForceOnImpact
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: modifyHealthOnImpact
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: ignoredColliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291175014004795503, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+        type: 3}
+      propertyPath: ignoredColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1670244352383432200}
     - target: {fileID: 4446352392291902159, guid: 32d909d2e19c8d144b6f21d83aa062b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -171,6 +206,12 @@ PrefabInstance:
       addedObject: {fileID: 1858014009439801352}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32d909d2e19c8d144b6f21d83aa062b4, type: 3}
+--- !u!135 &1670244352383432200 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7096670534104219955, guid: 32d909d2e19c8d144b6f21d83aa062b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8453703056354785083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5252617540029208052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4446352392291902159, guid: 32d909d2e19c8d144b6f21d83aa062b4,

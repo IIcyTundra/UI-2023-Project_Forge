@@ -18,17 +18,13 @@ MonoBehaviour:
   RateOfFire: 8
   ProjectilesPerMag: 75
   reloadTime: 0.3
-  ProjectileSpeed: 5
-  shell: {fileID: 0}
-  shellEjection: {fileID: 0}
+  WeaponRange: 0
+  BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
+    type: 3}
   ShootAudio:
   - {fileID: 8300000, guid: d01e7495d437f3042ab644b4de5a1575, type: 3}
   - {fileID: 8300000, guid: 084b0b6b749c9ab4da68fdbf57712ccc, type: 3}
   - {fileID: 8300000, guid: cc568fc1250f87848aef6de214cbce81, type: 3}
-  ReloadAudio:
-  - {fileID: 8300000, guid: 6d7bbba672d15c74288d779bcccc57e4, type: 3}
-  - {fileID: 8300000, guid: a2a20722c1c804a439a89763fe6d0b3b, type: 3}
-  - {fileID: 8300000, guid: dc7d95d89cebfd4429081a1d91bc5064, type: 3}
   kickMinMax: {x: 0.02, y: 0.1}
   recoilAngleMinMax: {x: 1, y: 3}
   recoilMoveSettleTime: 0.2

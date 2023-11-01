@@ -20,18 +20,36 @@ public class WeaponMechanics : MonoBehaviour
     bool triggerReleasedSinceLastShot;
     int shotsRemainingInBurst;
     int projectilesRemainingInMag;
-    
+
 
     bool isReloading;
+    public bool isShooting;
 
     AudioSource source;
+
+    private void OnEnable()
+    {
+        WeaponControls.ShootingHeld += OnTriggerHold;
+        WeaponControls.ShootingReleased += OnTriggerReleased;
+
+        Debug.Log($"enabled" + gameObject.name);
+    }
+
+    private void OnDisable()
+    {
+        WeaponControls.ShootingHeld -= OnTriggerHold;
+        WeaponControls.ShootingReleased -= OnTriggerReleased;
+
+        Debug.Log($"Disabled" + gameObject.name);
+    }
+
 
     private void Start()
     {
         nextShotTime = Time.time;
         shotsRemainingInBurst = m_WeaponData.burstCount;
         projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
-        source = GetComponent<AudioSource>();
+        source = GetComponentInParent<AudioSource>();
         timeBetweenShots = 1.0f / m_WeaponData.RateOfFire;
     }
 
@@ -50,9 +68,10 @@ public class WeaponMechanics : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
-        if (!isReloading && Time.time >= nextShotTime && projectilesRemainingInMag > 0)
+
+        if (!isShooting && Time.time >= nextShotTime && projectilesRemainingInMag > 0)
         {
             // Firemodes
             if (m_WeaponData.fireMode == FireMode.Burst)
@@ -71,7 +90,7 @@ public class WeaponMechanics : MonoBehaviour
 
             nextShotTime = Time.time + timeBetweenShots;
             // Spawn projectiles
-            SpawnBullet(ShootRaycast());
+            SpawnBullet();
 
 
             // Initiate Recoil
@@ -80,57 +99,35 @@ public class WeaponMechanics : MonoBehaviour
             recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
 
 
+            int j = Random.Range(0, m_WeaponData.ShootAudio.Length);
+            source.PlayOneShot(m_WeaponData.ShootAudio?[j], 1);
 
 
-            source.PlayOneShot(m_WeaponData.ShootAudio[Random.Range(0, m_WeaponData.ShootAudio.Length)], 1);
         }
     }
 
-    private Vector3 ShootRaycast()
+
+
+
+    private void SpawnBullet()
     {
-         
-        Camera mainCamera = GetComponentInParent<Camera>();
-        RaycastHit hitInfo;
 
-        if (mainCamera != null)
+        foreach (Transform muzzle in WeaponMuzzles)
         {
-            Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
+            GameObject bullet = ObjectPools.Instance.GetPooledObject(m_WeaponData.BulletPrefab.name);
+            //Debug.Log($"Round Shot" + WeaponMuzzles.Length);
+            bullet.transform.SetPositionAndRotation(muzzle.position, muzzle.rotation);
 
-            if (Physics.Raycast(ray, out hitInfo, m_WeaponData.WeaponRange))
-            {
-                Vector3 hitPoint = hitInfo.point;
-                return hitPoint;
-            }
-            else
-            {
-                Vector3 endPoint = mainCamera.transform.position + (mainCamera.transform.forward * m_WeaponData.WeaponRange);
-                return endPoint;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("No main camera found!");
-        }
-        return mainCamera.transform.position + (mainCamera.transform.forward * m_WeaponData.WeaponRange);
-
-    }
-
-
-    private void SpawnBullet(Vector3 shootPoint)
-    {
-        GameObject bullet = ObjectPools.Instance.GetPooledObject(0);
-        for(int i = 0; i < WeaponMuzzles.Length; i++)
-        {
-            bullet.transform.SetPositionAndRotation(WeaponMuzzles[i].position, Quaternion.Euler(shootPoint));
             bullet.SetActive(true);
 
-            if (bullet.GetComponent<Projectile>())
-            {
-                bullet.GetComponent<Projectile>().rigid.AddForce(WeaponMuzzles[i].forward * m_WeaponData.ProjectileSpeed, ForceMode.Impulse);
-            }
+            bullet.transform.forward = muzzle.forward;
+            bullet?.GetComponent<Projectile>().AddImpactListener();
+            //bulletProjectile.rigid.AddForce(muzzle.forward * bulletProjectile.velocity, ForceMode.Impulse); 
         }
-              
+
     }
+
+             
 
     public void Reload()
     {
@@ -145,7 +142,7 @@ public class WeaponMechanics : MonoBehaviour
         isReloading = true;
         yield return new WaitForSeconds(.2f);
 
-        source.PlayOneShot(m_WeaponData.ReloadAudio[Random.Range(0, m_WeaponData.ShootAudio.Length)], 1);
+        //source.PlayOneShot(m_WeaponData.ReloadAudio[Random.Range(0, m_WeaponData.ShootAudio.Length)], 1);
 
         float reloadSpeed = 1 / m_WeaponData.reloadTime;
         float percent = 0;
@@ -169,7 +166,8 @@ public class WeaponMechanics : MonoBehaviour
     }
 
     public void OnTriggerHold()
-    {
+    { 
+        
         Shoot();
         triggerReleasedSinceLastShot = false;
     }
