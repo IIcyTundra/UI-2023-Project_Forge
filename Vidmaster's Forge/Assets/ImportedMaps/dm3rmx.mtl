@@ -1,0 +1,240 @@
+newmtl *lava03
+
+newmtl *tele01
+
+newmtl *water0
+
+newmtl *water04
+
+newmtl +0basebtn
+
+newmtl +0slipbot
+
+newmtl +0sliptop
+
+newmtl +abasebtn
+
+newmtl base_ceil1
+
+newmtl basebutn3
+
+newmtl black
+
+newmtl bm12door
+
+newmtl bw_techpanel3
+
+newmtl caulk
+
+newmtl ceil1_1
+
+newmtl clip
+
+newmtl comp1_1
+
+newmtl comp1_2
+
+newmtl comp1_3
+
+newmtl comp1_4
+
+newmtl comp1_6
+
+newmtl cop1_7
+
+newmtl ctpanel8
+
+newmtl ctsecret
+
+newmtl ecop1_1
+
+newmtl ecop1_4
+
+newmtl ecop1_6
+
+newmtl edoor01_1
+
+newmtl electro2
+
+newmtl grass1_2
+
+newmtl grate01_1
+
+newmtl grate02_2
+
+newmtl gurumed
+
+newmtl key01_1
+
+newmtl key01_2
+
+newmtl light1_4
+
+newmtl lite_fart2
+
+newmtl lunflr1
+
+newmtl metal1_4
+
+newmtl metal5_80
+
+newmtl metal6_1
+
+newmtl metal9_2
+
+newmtl mmetal1_8
+
+newmtl pbtek1_04
+
+newmtl pbtek1_05
+
+newmtl pbtek1_06
+
+newmtl pbtek1_07b
+
+newmtl pbtek1_rlite
+
+newmtl qtex08
+
+newmtl rock06
+
+newmtl rock07
+
+newmtl rock14
+
+newmtl romero1b
+
+newmtl romero2b
+
+newmtl rpbase1
+
+newmtl rpbase2
+
+newmtl rpbase5
+
+newmtl sfloor4_2
+
+newmtl sfloor4_5
+
+newmtl sfloor4_6
+
+newmtl skip
+
+newmtl sky02
+
+newmtl slipbotsd
+
+newmtl sliplite
+
+newmtl slp_la3
+
+newmtl switch_1
+
+newmtl sym06_4
+
+newmtl sym06_8
+
+newmtl tech01_1
+
+newmtl tech01_2
+
+newmtl tech02_1
+
+newmtl tech04_5
+
+newmtl tech04_6
+
+newmtl tech04_7
+
+newmtl tech04_8
+
+newmtl tech07_2
+
+newmtl tech08_1
+
+newmtl tech08_1a
+
+newmtl tech08_3
+
+newmtl tech08_5a
+
+newmtl tech08_6
+
+newmtl tech08_7
+
+newmtl tech08_7b
+
+newmtl tech08_9
+
+newmtl tech09_3
+
+newmtl tech10_1
+
+newmtl tech10_2
+
+newmtl tech10_4
+
+newmtl tech10_6
+
+newmtl tech10_7
+
+newmtl tech10_8
+
+newmtl tech10_than2
+
+newmtl tech11_2
+
+newmtl tech13_1
+
+newmtl tech_32bord
+
+newmtl tech_64bord
+
+newmtl tech_64borda
+
+newmtl tek_la12
+
+newmtl tek_la16
+
+newmtl tek_la9
+
+newmtl tek_re10
+
+newmtl tele_top
+
+newmtl thansym6_5
+
+newmtl thansym6_6
+
+newmtl thantech10_9
+
+newmtl tlight02
+
+newmtl trigger
+
+newmtl twall1_1
+
+newmtl twall2_1
+
+newmtl twall2_2
+
+newmtl twall2_3
+
+newmtl twall2_5
+
+newmtl twall2_6
+
+newmtl tyr_07
+
+newmtl tyr_14
+
+newmtl tyr_15
+
+newmtl wbrick1_5
+
+newmtl white_cont
+
+newmtl wizmet1_3
+
+newmtl z_exit
+

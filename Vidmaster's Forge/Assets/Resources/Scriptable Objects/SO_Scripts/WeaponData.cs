@@ -31,6 +31,7 @@ public class WeaponData : ScriptableObject
     //public Transform shell;
     //public Transform shellEjection;
     public AudioClip[] ShootAudio;
+    public AudioClip EmptyMagAudio;
 
     [Header("Recoil")]
     public Vector2 kickMinMax = new Vector2(.05f, .2f);

@@ -1,0 +1,110 @@
+newmtl *water1
+
+newmtl +0techlight_1
+
+newmtl +atechlight_1
+
+newmtl 128_blood_2
+
+newmtl 128_blue_3
+
+newmtl 32_blood_3
+
+newmtl 32_blue_2
+
+newmtl 32_cyan_2
+
+newmtl 32_honey_2
+
+newmtl 64_honey_2
+
+newmtl __TB_empty
+
+newmtl clip
+map_Kd 
+
+newmtl skip
+
+newmtl sky1
+
+newmtl techflat1_blk1
+
+newmtl techflat1_grey1
+
+newmtl techflat1_grey2
+
+newmtl techflat1_ylw2
+
+newmtl techflat2_blk1
+
+newmtl techflat2_grey1
+
+newmtl techflat2_grey2
+
+newmtl techflr1_blk1
+
+newmtl techflr1_grey1
+
+newmtl techflr2_blk1
+
+newmtl techflr2_grey1
+
+newmtl techflr3_blk1
+
+newmtl techflr3_grey2
+
+newmtl techflr4_blk1
+
+newmtl techflr4_grey1
+
+newmtl techflr4_grey2
+
+newmtl techflr5_blk1
+
+newmtl techflr5_grey1
+
+newmtl techlzr_orng2
+
+newmtl techtrim1_blk1
+
+newmtl techtrim1_grey1
+
+newmtl techtrim1_grey2
+
+newmtl techtrim1_ylw1
+
+newmtl techtrim1_ylw2
+
+newmtl techtrim2_blk1
+
+newmtl techtrim2_ylw2
+
+newmtl techtrim3_blk1
+
+newmtl techtrim3_grey1
+
+newmtl techtrim3_grey2
+
+newmtl techtrim3_ylw2
+
+newmtl techwall1_blk1
+
+newmtl techwall1_grey1
+
+newmtl techwall2_blk1
+
+newmtl techwall2_grey1
+
+newmtl techwall2_ylw2
+
+newmtl techwall3_grey1
+
+newmtl techwall3_grey2
+
+newmtl techwall3_ylw2
+
+newmtl techwall4_blk1
+
+newmtl trigger
+map_Kd 
+

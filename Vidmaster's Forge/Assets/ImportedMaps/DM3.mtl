@@ -1,0 +1,177 @@
+newmtl *TELEPORT
+map_Kd 
+
+newmtl *WATER1
+map_Kd 
+
+newmtl COMP1_1
+map_Kd 
+
+newmtl COMP1_2
+map_Kd 
+
+newmtl COMP1_3
+map_Kd 
+
+newmtl COMP1_4
+map_Kd 
+
+newmtl COMP1_5
+map_Kd 
+
+newmtl COMP1_6
+map_Kd 
+
+newmtl COMP1_7
+map_Kd 
+
+newmtl COMP1_8
+map_Kd 
+
+newmtl ECOP1_4
+map_Kd 
+
+newmtl ECOP1_6
+map_Kd 
+
+newmtl EMETAL1_3
+map_Kd 
+
+newmtl GROUND1_2
+map_Kd 
+
+newmtl GROUND1_6
+map_Kd 
+
+newmtl GROUND1_7
+map_Kd 
+
+newmtl PLAT_SIDE1
+map_Kd 
+
+newmtl PLAT_STEM
+map_Kd 
+
+newmtl PLAT_TOP1
+map_Kd 
+
+newmtl SFLOOR1_2
+map_Kd 
+
+newmtl SFLOOR3_2
+map_Kd 
+
+newmtl SFLOOR4_1
+map_Kd 
+
+newmtl SFLOOR4_2
+map_Kd 
+
+newmtl SFLOOR4_4
+map_Kd 
+
+newmtl SFLOOR4_5
+map_Kd 
+
+newmtl SFLOOR4_7
+map_Kd 
+
+newmtl SFLOOR4_8
+map_Kd 
+
+newmtl SKY4
+map_Kd 
+
+newmtl TECH01_1
+map_Kd 
+
+newmtl TECH01_2
+map_Kd 
+
+newmtl TECH01_5
+map_Kd 
+
+newmtl TECH01_6
+map_Kd 
+
+newmtl TECH01_7
+map_Kd 
+
+newmtl TECH02_6
+map_Kd 
+
+newmtl TECH02_7
+map_Kd 
+
+newmtl TECH03_1
+map_Kd 
+
+newmtl TECH03_2
+map_Kd 
+
+newmtl TECH04_1
+map_Kd 
+
+newmtl TECH04_2
+map_Kd 
+
+newmtl TECH04_3
+map_Kd 
+
+newmtl TECH04_4
+map_Kd 
+
+newmtl TECH04_5
+map_Kd 
+
+newmtl TECH04_6
+map_Kd 
+
+newmtl TECH04_7
+map_Kd 
+
+newmtl TECH04_8
+map_Kd 
+
+newmtl TECH05_1
+map_Kd 
+
+newmtl TECH05_2
+map_Kd 
+
+newmtl TECH06_1
+map_Kd 
+
+newmtl TECH06_2
+map_Kd 
+
+newmtl TECH07_1
+map_Kd 
+
+newmtl TECH07_2
+map_Kd 
+
+newmtl TELE_TOP
+map_Kd 
+
+newmtl TLIGHT01
+map_Kd 
+
+newmtl TLIGHT02
+map_Kd 
+
+newmtl TLIGHT03
+map_Kd 
+
+newmtl TLIGHT07
+map_Kd 
+
+newmtl TLIGHT08
+map_Kd 
+
+newmtl TLIGHT09
+map_Kd 
+
+newmtl Z_EXIT
+map_Kd 
+

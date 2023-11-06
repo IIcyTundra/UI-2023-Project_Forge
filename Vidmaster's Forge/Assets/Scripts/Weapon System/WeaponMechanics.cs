@@ -21,8 +21,6 @@ public class WeaponMechanics : MonoBehaviour
     int shotsRemainingInBurst;
     int projectilesRemainingInMag;
 
-
-    bool isReloading;
     public bool isShooting;
 
     AudioSource source;
@@ -58,20 +56,13 @@ public class WeaponMechanics : MonoBehaviour
         // animate recoil
         transform.localPosition = Vector3.SmoothDamp(transform.localPosition, Vector3.zero, ref recoilSmoothDampVelocity, m_WeaponData.recoilMoveSettleTime);
 
-
-        if (!isReloading)
-        {
-            recoilAngle = Mathf.SmoothDamp(recoilAngle, 0, ref recoilRotSmoothDampVelocity, m_WeaponData.recoilRotationSettleTime);
-            transform.localEulerAngles = Vector3.left * recoilAngle;
-            if (projectilesRemainingInMag == 0)
-                Reload();
-        }
+        recoilAngle = Mathf.SmoothDamp(recoilAngle, 0, ref recoilRotSmoothDampVelocity, m_WeaponData.recoilRotationSettleTime);
+        transform.localEulerAngles = Vector3.left * recoilAngle;
     }
 
     public void Shoot()
     {
-
-        if (!isShooting && Time.time >= nextShotTime && projectilesRemainingInMag > 0)
+        if (Time.time >= nextShotTime && projectilesRemainingInMag > 0)
         {
             // Firemodes
             if (m_WeaponData.fireMode == FireMode.Burst)
@@ -100,10 +91,14 @@ public class WeaponMechanics : MonoBehaviour
 
 
             int j = Random.Range(0, m_WeaponData.ShootAudio.Length);
-            source.PlayOneShot(m_WeaponData.ShootAudio?[j], 1);
-
-
+            source.PlayOneShot(m_WeaponData.ShootAudio?[j]);
         }
+        else
+        {
+            source.PlayOneShot(m_WeaponData.EmptyMagAudio);
+        }
+
+
     }
 
 
@@ -111,71 +106,42 @@ public class WeaponMechanics : MonoBehaviour
 
     private void SpawnBullet()
     {
-
+        isShooting = false;
         foreach (Transform muzzle in WeaponMuzzles)
         {
             GameObject bullet = ObjectPools.Instance.GetPooledObject(m_WeaponData.BulletPrefab.name);
-            //Debug.Log($"Round Shot" + WeaponMuzzles.Length);
-            bullet.transform.SetPositionAndRotation(muzzle.position, muzzle.rotation);
+            if (bullet.activeSelf != true)
 
-            bullet.SetActive(true);
+            {
+                bullet.transform.SetPositionAndRotation(muzzle.position, muzzle.rotation);
 
-            bullet.transform.forward = muzzle.forward;
-            bullet?.GetComponent<Projectile>().AddImpactListener();
-            //bulletProjectile.rigid.AddForce(muzzle.forward * bulletProjectile.velocity, ForceMode.Impulse); 
+                bullet.SetActive(true);
+
+                bullet.transform.forward = muzzle.forward;
+                bullet?.GetComponent<Projectile>().AddImpactListener();
+
+                projectilesRemainingInMag--;
+            }
         }
-
+        isShooting = true;
     }
 
-             
-
-    public void Reload()
-    {
-        if (!isReloading && projectilesRemainingInMag != m_WeaponData.ProjectilesPerMag)
-        {
-            StartCoroutine(AnimateReload());
-        }
-    }
-
-    IEnumerator AnimateReload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(.2f);
-
-        //source.PlayOneShot(m_WeaponData.ReloadAudio[Random.Range(0, m_WeaponData.ShootAudio.Length)], 1);
-
-        float reloadSpeed = 1 / m_WeaponData.reloadTime;
-        float percent = 0;
-
-        Vector3 initialRot = transform.localEulerAngles;
-        float maxReloadAngle = 30.0f;
-
-        while (percent < 1)
-        {
-            percent += Time.deltaTime * reloadSpeed;
-
-            float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
-            float reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
-            transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
-
-            yield return null;
-        }
-
-        isReloading = false;
-        projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
-    }
 
     public void OnTriggerHold()
     { 
+        if(!isShooting)
+        {
+            Shoot();
+            triggerReleasedSinceLastShot = false;
+        }
         
-        Shoot();
-        triggerReleasedSinceLastShot = false;
     }
 
     public void OnTriggerReleased()
     {
         triggerReleasedSinceLastShot = true;
         shotsRemainingInBurst = m_WeaponData.burstCount;
+        isShooting = false;
     }
 }
 
