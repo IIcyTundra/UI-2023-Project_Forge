@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569974112123378885}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.153, z: 0.7749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1444504383058182483}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4018355997863474240
 GameObject:
@@ -57,6 +57,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4018355997863474240}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -65,7 +66,6 @@ Transform:
   - {fileID: 2845790644146264053}
   - {fileID: 7806232964557833298}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2841350293968048287
 MonoBehaviour:
@@ -82,6 +82,7 @@ MonoBehaviour:
   m_WeaponData: {fileID: 11400000, guid: 680e639aea448ac4e8f71f68a84782a5, type: 2}
   WeaponMuzzles:
   - {fileID: 2845790644146264053}
+  m_PlayerCam: {fileID: 0}
   isShooting: 0
 --- !u!114 &5529216546076058749
 MonoBehaviour:
@@ -307,17 +308,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 33080638cc1a55a49ab7a08426de17c1, type: 2}
+      objectReference: {fileID: 2100000, guid: 5d975d11579908e43bce01560dc96749, type: 2}
     - target: {fileID: -7511558181221131132, guid: 98f46f4313a2e4e409682b609a8ccb90,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 36761a72da910c748986ed611fc52c51, type: 2}
+      objectReference: {fileID: 2100000, guid: 5d975d11579908e43bce01560dc96749, type: 2}
     - target: {fileID: -7511558181221131132, guid: 98f46f4313a2e4e409682b609a8ccb90,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 33080638cc1a55a49ab7a08426de17c1, type: 2}
+      objectReference: {fileID: 2100000, guid: 5d975d11579908e43bce01560dc96749, type: 2}
     - target: {fileID: 919132149155446097, guid: 98f46f4313a2e4e409682b609a8ccb90,
         type: 3}
       propertyPath: m_Name

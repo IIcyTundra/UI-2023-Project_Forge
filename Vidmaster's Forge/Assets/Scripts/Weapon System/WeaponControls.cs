@@ -20,9 +20,5 @@ public class WeaponControls : MonoBehaviour
             ShootingHeld?.Invoke();
             //Debug.Log("Shooting");
         }
-            
-
-        if (Input.GetMouseButtonUp(0))
-            ShootingReleased?.Invoke();
     }
 }

@@ -8,15 +8,15 @@ public class WeaponMechanics : MonoBehaviour
 {
     [SerializeField] private WeaponData m_WeaponData;
     [SerializeField] private Transform[] WeaponMuzzles;
+    [SerializeField] private Camera m_PlayerCam;
 
-    private float timeBetweenShots;
+    private float timeSinceLastShot;
 
     Vector3 recoilSmoothDampVelocity;
     float recoilRotSmoothDampVelocity;
     float recoilAngle;
 
 
-    float nextShotTime;
     bool triggerReleasedSinceLastShot;
     int shotsRemainingInBurst;
     int projectilesRemainingInMag;
@@ -27,16 +27,14 @@ public class WeaponMechanics : MonoBehaviour
 
     private void OnEnable()
     {
-        WeaponControls.ShootingHeld += OnTriggerHold;
-        WeaponControls.ShootingReleased += OnTriggerReleased;
+        WeaponControls.ShootingHeld += Shoot;
 
         Debug.Log($"enabled" + gameObject.name);
     }
 
     private void OnDisable()
     {
-        WeaponControls.ShootingHeld -= OnTriggerHold;
-        WeaponControls.ShootingReleased -= OnTriggerReleased;
+        WeaponControls.ShootingHeld -= Shoot;
 
         Debug.Log($"Disabled" + gameObject.name);
     }
@@ -44,11 +42,9 @@ public class WeaponMechanics : MonoBehaviour
 
     private void Start()
     {
-        nextShotTime = Time.time;
         shotsRemainingInBurst = m_WeaponData.burstCount;
         projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
         source = GetComponentInParent<AudioSource>();
-        timeBetweenShots = 1.0f / m_WeaponData.RateOfFire;
     }
 
     private void LateUpdate()
@@ -60,53 +56,87 @@ public class WeaponMechanics : MonoBehaviour
         transform.localEulerAngles = Vector3.left * recoilAngle;
     }
 
+    private bool CanShoot() => timeSinceLastShot > 1f / (m_WeaponData.RateOfFire / 60f);
+
+    private void Update()
+    {
+        timeSinceLastShot += Time.deltaTime;
+    }
+
+
     public void Shoot()
     {
-        if (Time.time >= nextShotTime && projectilesRemainingInMag > 0)
-        {
-            // Firemodes
-            if (m_WeaponData.fireMode == FireMode.Burst)
+        int i = Random.Range(0, m_WeaponData.ShootAudio.Length);
+        if (projectilesRemainingInMag > 0)
+        { 
+            if (CanShoot())
             {
-                if (shotsRemainingInBurst == 0)
+                switch (m_WeaponData.fireMode)
                 {
-                    return;
+                    case FireMode.Burst:
+                        FireBurst();
+                        break;
+                    case FireMode.Single:
+                        if (!triggerReleasedSinceLastShot) return;
+                        ChooseBulletType();
+                        break;
+                    case FireMode.Automatic:
+                        ChooseBulletType();
+                        break;
                 }
-                shotsRemainingInBurst--;
+
+
+
+                // Initiate Recoil
+                transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
+                recoilAngle += Random.Range(m_WeaponData.recoilAngleMinMax.x, m_WeaponData.recoilAngleMinMax.y);
+                recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
+
+
+                source.PlayOneShot(m_WeaponData.ShootAudio?[i]);
             }
-            else if (m_WeaponData.fireMode == FireMode.Single)
-            {
-                if (!triggerReleasedSinceLastShot) return;
-            }
-
-
-            nextShotTime = Time.time + timeBetweenShots;
-            // Spawn projectiles
-            SpawnBullet();
-
-
-            // Initiate Recoil
-            transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
-            recoilAngle += Random.Range(m_WeaponData.recoilAngleMinMax.x, m_WeaponData.recoilAngleMinMax.y);
-            recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
-
-
-            int j = Random.Range(0, m_WeaponData.ShootAudio.Length);
-            source.PlayOneShot(m_WeaponData.ShootAudio?[j]);
-        }
-        else
-        {
-            source.PlayOneShot(m_WeaponData.EmptyMagAudio);
         }
 
 
     }
 
-
-
-
-    private void SpawnBullet()
+    private void ChooseBulletType()
     {
-        isShooting = false;
+        switch (m_WeaponData.bulletType)
+        {
+            case BulletType.hitscan:
+                FireRaycast();
+                break;
+            case BulletType.projectile:
+                SpawnProjectile();
+                break;
+        }
+    }
+
+
+    IEnumerator FireBurst()
+    {
+
+        for (int i = 0; i < m_WeaponData.burstCount; i++)
+        {
+            ChooseBulletType();
+            yield return new WaitForSeconds(1f / m_WeaponData.RateOfFire);
+        }
+
+    }
+    private void FireRaycast()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(m_PlayerCam.transform.position, m_PlayerCam.transform.forward, out hit, m_WeaponData.WeaponRange))
+        {
+            Debug.Log(hit.transform.name);
+        }
+        shotsRemainingInBurst--;
+    }
+
+
+    private void SpawnProjectile()
+    {
         foreach (Transform muzzle in WeaponMuzzles)
         {
             GameObject bullet = ObjectPools.Instance.GetPooledObject(m_WeaponData.BulletPrefab.name);
@@ -123,25 +153,7 @@ public class WeaponMechanics : MonoBehaviour
                 projectilesRemainingInMag--;
             }
         }
-        isShooting = true;
     }
 
-
-    public void OnTriggerHold()
-    { 
-        if(!isShooting)
-        {
-            Shoot();
-            triggerReleasedSinceLastShot = false;
-        }
-        
-    }
-
-    public void OnTriggerReleased()
-    {
-        triggerReleasedSinceLastShot = true;
-        shotsRemainingInBurst = m_WeaponData.burstCount;
-        isShooting = false;
-    }
 }
 

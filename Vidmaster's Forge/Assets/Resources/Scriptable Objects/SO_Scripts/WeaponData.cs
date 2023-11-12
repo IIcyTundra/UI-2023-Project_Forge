@@ -11,6 +11,12 @@ public enum FireMode
     Automatic
 }
 
+public enum BulletType
+{
+    hitscan,
+    projectile
+}
+
 [CreateAssetMenu(fileName = "WeaponData", menuName = "Weapon System/Weapon Data"  )]
 public class WeaponData : ScriptableObject
 {
@@ -18,6 +24,7 @@ public class WeaponData : ScriptableObject
     [Header("Stats")]
     public float MuzzleVelocity;
     public FireMode fireMode = FireMode.Single;
+    public BulletType bulletType = BulletType.hitscan;
     public int burstCount;
     public float RateOfFire; //rounds per second
     public int ProjectilesPerMag;
