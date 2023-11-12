@@ -54,4 +54,9 @@ public class PlayerInputManager : ScriptableObject, PlayerInput.IPlayerActionMap
     {
         //BLAM
     }
+
+    public void OnReload(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        //Reloading...
+    }
 }

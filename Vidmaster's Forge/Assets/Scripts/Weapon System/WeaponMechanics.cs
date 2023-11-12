@@ -1,22 +1,28 @@
 using Kitbashery.Gameplay;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WeaponMechanics : MonoBehaviour
 {
     [SerializeField] private WeaponData m_WeaponData;
     [SerializeField] private Transform[] WeaponMuzzles;
-    [SerializeField] private Camera m_PlayerCam;
-
-    private float timeSinceLastShot;
+    [SerializeField] private TextMeshProUGUI ammoCounter, weaponName;
+    [SerializeField] private AmmoManager ammoManager;
+    
+    private float timeBetweenShots;
 
     Vector3 recoilSmoothDampVelocity;
     float recoilRotSmoothDampVelocity;
     float recoilAngle;
 
 
+    float nextShotTime;
     bool triggerReleasedSinceLastShot;
     int shotsRemainingInBurst;
     int projectilesRemainingInMag;
@@ -27,14 +33,20 @@ public class WeaponMechanics : MonoBehaviour
 
     private void OnEnable()
     {
-        WeaponControls.ShootingHeld += Shoot;
+        WeaponControls.ShootingHeld += OnTriggerHold;
+        WeaponControls.ShootingReleased += OnTriggerReleased;
+        WeaponControls.Reload += OnReload;
+
+        UpdateAmmoCounter();
 
         Debug.Log($"enabled" + gameObject.name);
     }
 
     private void OnDisable()
     {
-        WeaponControls.ShootingHeld -= Shoot;
+        WeaponControls.ShootingHeld -= OnTriggerHold;
+        WeaponControls.ShootingReleased -= OnTriggerReleased;
+        WeaponControls.Reload -= OnReload;
 
         Debug.Log($"Disabled" + gameObject.name);
     }
@@ -42,9 +54,12 @@ public class WeaponMechanics : MonoBehaviour
 
     private void Start()
     {
+        nextShotTime = Time.time;
         shotsRemainingInBurst = m_WeaponData.burstCount;
         projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
         source = GetComponentInParent<AudioSource>();
+        timeBetweenShots = 1.0f / m_WeaponData.RateOfFire;
+        UpdateAmmoCounter();
     }
 
     private void LateUpdate()
@@ -56,87 +71,65 @@ public class WeaponMechanics : MonoBehaviour
         transform.localEulerAngles = Vector3.left * recoilAngle;
     }
 
-    private bool CanShoot() => timeSinceLastShot > 1f / (m_WeaponData.RateOfFire / 60f);
-
-    private void Update()
-    {
-        timeSinceLastShot += Time.deltaTime;
-    }
-
-
     public void Shoot()
     {
-        int i = Random.Range(0, m_WeaponData.ShootAudio.Length);
-        if (projectilesRemainingInMag > 0)
-        { 
-            if (CanShoot())
+        if (Time.time >= nextShotTime && projectilesRemainingInMag > 0)
+        {
+            // Firemodes
+            if (m_WeaponData.fireMode == FireMode.Burst)
             {
-                switch (m_WeaponData.fireMode)
+                if (shotsRemainingInBurst == 0)
                 {
-                    case FireMode.Burst:
-                        FireBurst();
-                        break;
-                    case FireMode.Single:
-                        if (!triggerReleasedSinceLastShot) return;
-                        ChooseBulletType();
-                        break;
-                    case FireMode.Automatic:
-                        ChooseBulletType();
-                        break;
+                    return;
                 }
-
-
-
-                // Initiate Recoil
-                transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
-                recoilAngle += Random.Range(m_WeaponData.recoilAngleMinMax.x, m_WeaponData.recoilAngleMinMax.y);
-                recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
-
-
-                source.PlayOneShot(m_WeaponData.ShootAudio?[i]);
+                shotsRemainingInBurst--;
             }
+            else if (m_WeaponData.fireMode == FireMode.Single)
+            {
+                if (!triggerReleasedSinceLastShot) return;
+            }
+
+
+            nextShotTime = Time.time + timeBetweenShots;
+            // Spawn projectiles
+            SpawnBullet();
+
+
+            // Initiate Recoil
+            transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
+            recoilAngle += Random.Range(m_WeaponData.recoilAngleMinMax.x, m_WeaponData.recoilAngleMinMax.y);
+            recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
+
+
+            int j = Random.Range(0, m_WeaponData.ShootAudio.Length);
+            source.PlayOneShot(m_WeaponData.ShootAudio?[j]);
         }
-
-
-    }
-
-    private void ChooseBulletType()
-    {
-        switch (m_WeaponData.bulletType)
+        else
         {
-            case BulletType.hitscan:
-                FireRaycast();
-                break;
-            case BulletType.projectile:
-                SpawnProjectile();
-                break;
+            source.PlayOneShot(m_WeaponData.EmptyMagAudio);
         }
+
+
     }
 
-
-    IEnumerator FireBurst()
+    // Reload current weapon ******TEMPORARY, to be turned into
+    public void OnReload()
     {
-
-        for (int i = 0; i < m_WeaponData.burstCount; i++)
+        // Need to check how much ammo of type we have, remove either the mag size or the remaining ammo, whichever is smaller, and then update the ammocounter
+        int remainingAmmoOfType = ammoManager.GetAmmoCount(m_WeaponData.ammoType);
+        if ( remainingAmmoOfType > 0 && projectilesRemainingInMag != m_WeaponData.ProjectilesPerMag)
         {
-            ChooseBulletType();
-            yield return new WaitForSeconds(1f / m_WeaponData.RateOfFire);
+            int bulletsToAdd = Math.Min(remainingAmmoOfType, m_WeaponData.ProjectilesPerMag - projectilesRemainingInMag);
+            projectilesRemainingInMag += bulletsToAdd;
+            ammoManager.RemoveAmmo(m_WeaponData.ammoType, bulletsToAdd);
+            UpdateAmmoCounter();
         }
-
-    }
-    private void FireRaycast()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(m_PlayerCam.transform.position, m_PlayerCam.transform.forward, out hit, m_WeaponData.WeaponRange))
-        {
-            Debug.Log(hit.transform.name);
-        }
-        shotsRemainingInBurst--;
     }
 
 
-    private void SpawnProjectile()
+    private void SpawnBullet()
     {
+        isShooting = false;
         foreach (Transform muzzle in WeaponMuzzles)
         {
             GameObject bullet = ObjectPools.Instance.GetPooledObject(m_WeaponData.BulletPrefab.name);
@@ -151,9 +144,33 @@ public class WeaponMechanics : MonoBehaviour
                 bullet?.GetComponent<Projectile>().AddImpactListener();
 
                 projectilesRemainingInMag--;
+                UpdateAmmoCounter();
             }
         }
+        isShooting = true;
     }
 
+    public void UpdateAmmoCounter()
+    {
+        ammoCounter.SetText($"{projectilesRemainingInMag} | {ammoManager.GetAmmoCount(m_WeaponData.ammoType)}");
+        weaponName.SetText(m_WeaponData.name);
+    }
+
+    public void OnTriggerHold()
+    { 
+        if(!isShooting)
+        {
+            Shoot();
+            triggerReleasedSinceLastShot = false;
+        }
+        
+    }
+
+    public void OnTriggerReleased()
+    {
+        triggerReleasedSinceLastShot = true;
+        shotsRemainingInBurst = m_WeaponData.burstCount;
+        isShooting = false;
+    }
 }
 
