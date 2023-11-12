@@ -9,7 +9,7 @@ public class WeaponControls : MonoBehaviour
 {
     public static Action ShootingHeld;
     public static Action ShootingReleased;
-
+    public static Action Reload;
 
 
     // Update is called once per frame
@@ -23,6 +23,13 @@ public class WeaponControls : MonoBehaviour
             
 
         if (Input.GetMouseButtonUp(0))
+        {
             ShootingReleased?.Invoke();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)){
+            Reload?.Invoke();;
+        }
+        
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -54,6 +55,8 @@ public class WeaponManager : MonoBehaviour
 
         timeSinceLastSwitch += Time.deltaTime;
 
+        
+
     }
 
     private void ScrollSelect()
@@ -85,5 +88,14 @@ public class WeaponManager : MonoBehaviour
     }
     private void OnWeaponSelected() 
     {
+        // Need to update the ammo counter upon switching the weapon, every time
+        WeaponMechanics selectedWeaponMechanics = weapons[selectedWeapon].GetComponent<WeaponMechanics>();
+        selectedWeaponMechanics.UpdateAmmoCounter();
+    }
+
+    public void OnAmmoPickup()
+    {
+        WeaponMechanics selectedWeaponMechanics = weapons[selectedWeapon].GetComponent<WeaponMechanics>();
+        selectedWeaponMechanics.UpdateAmmoCounter();
     }
 }

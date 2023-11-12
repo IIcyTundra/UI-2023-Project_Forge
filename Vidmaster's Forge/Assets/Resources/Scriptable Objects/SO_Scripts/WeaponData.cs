@@ -23,6 +23,7 @@ public class WeaponData : ScriptableObject
     public int ProjectilesPerMag;
     public float reloadTime = 0.3f;
     public float WeaponRange;
+    public AmmoType ammoType;
 
     [Header("Projectile")]
     public GameObject BulletPrefab;

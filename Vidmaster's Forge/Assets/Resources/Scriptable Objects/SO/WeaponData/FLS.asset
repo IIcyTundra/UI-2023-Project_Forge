@@ -16,9 +16,10 @@ MonoBehaviour:
   fireMode: 0
   burstCount: 0
   RateOfFire: 5
-  ProjectilesPerMag: 200
+  ProjectilesPerMag: 10
   reloadTime: 0.3
   WeaponRange: 0
+  ammoType: 1
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
     type: 3}
   ShootAudio:

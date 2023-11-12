@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""3229691d-730d-4153-9aad-d28e3c21a092"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c31d60c-d91b-4d8c-a284-fb3a72b88512"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerDefault"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +222,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Jump = m_PlayerActionMap.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActionMap_PrimaryShoot = m_PlayerActionMap.FindAction("PrimaryShoot", throwIfNotFound: true);
         m_PlayerActionMap_SecondaryShoot = m_PlayerActionMap.FindAction("SecondaryShoot", throwIfNotFound: true);
+        m_PlayerActionMap_Reload = m_PlayerActionMap.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,6 +289,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Jump;
     private readonly InputAction m_PlayerActionMap_PrimaryShoot;
     private readonly InputAction m_PlayerActionMap_SecondaryShoot;
+    private readonly InputAction m_PlayerActionMap_Reload;
     public struct PlayerActionMapActions
     {
         private @PlayerInput m_Wrapper;
@@ -277,6 +299,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActionMap_Jump;
         public InputAction @PrimaryShoot => m_Wrapper.m_PlayerActionMap_PrimaryShoot;
         public InputAction @SecondaryShoot => m_Wrapper.m_PlayerActionMap_SecondaryShoot;
+        public InputAction @Reload => m_Wrapper.m_PlayerActionMap_Reload;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,6 +324,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SecondaryShoot.started += instance.OnSecondaryShoot;
             @SecondaryShoot.performed += instance.OnSecondaryShoot;
             @SecondaryShoot.canceled += instance.OnSecondaryShoot;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -320,6 +346,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SecondaryShoot.started -= instance.OnSecondaryShoot;
             @SecondaryShoot.performed -= instance.OnSecondaryShoot;
             @SecondaryShoot.canceled -= instance.OnSecondaryShoot;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -353,5 +382,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPrimaryShoot(InputAction.CallbackContext context);
         void OnSecondaryShoot(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
 }

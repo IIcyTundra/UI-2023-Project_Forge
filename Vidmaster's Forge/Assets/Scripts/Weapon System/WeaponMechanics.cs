@@ -1,14 +1,20 @@
 using Kitbashery.Gameplay;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WeaponMechanics : MonoBehaviour
 {
     [SerializeField] private WeaponData m_WeaponData;
     [SerializeField] private Transform[] WeaponMuzzles;
-
+    [SerializeField] private TextMeshProUGUI ammoCounter, weaponName;
+    [SerializeField] private AmmoManager ammoManager;
+    
     private float timeBetweenShots;
 
     Vector3 recoilSmoothDampVelocity;
@@ -29,6 +35,9 @@ public class WeaponMechanics : MonoBehaviour
     {
         WeaponControls.ShootingHeld += OnTriggerHold;
         WeaponControls.ShootingReleased += OnTriggerReleased;
+        WeaponControls.Reload += OnReload;
+
+        UpdateAmmoCounter();
 
         Debug.Log($"enabled" + gameObject.name);
     }
@@ -37,6 +46,7 @@ public class WeaponMechanics : MonoBehaviour
     {
         WeaponControls.ShootingHeld -= OnTriggerHold;
         WeaponControls.ShootingReleased -= OnTriggerReleased;
+        WeaponControls.Reload -= OnReload;
 
         Debug.Log($"Disabled" + gameObject.name);
     }
@@ -49,6 +59,7 @@ public class WeaponMechanics : MonoBehaviour
         projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
         source = GetComponentInParent<AudioSource>();
         timeBetweenShots = 1.0f / m_WeaponData.RateOfFire;
+        UpdateAmmoCounter();
     }
 
     private void LateUpdate()
@@ -101,7 +112,19 @@ public class WeaponMechanics : MonoBehaviour
 
     }
 
-
+    // Reload current weapon ******TEMPORARY, to be turned into
+    public void OnReload()
+    {
+        // Need to check how much ammo of type we have, remove either the mag size or the remaining ammo, whichever is smaller, and then update the ammocounter
+        int remainingAmmoOfType = ammoManager.GetAmmoCount(m_WeaponData.ammoType);
+        if ( remainingAmmoOfType > 0 && projectilesRemainingInMag != m_WeaponData.ProjectilesPerMag)
+        {
+            int bulletsToAdd = Math.Min(remainingAmmoOfType, m_WeaponData.ProjectilesPerMag - projectilesRemainingInMag);
+            projectilesRemainingInMag += bulletsToAdd;
+            ammoManager.RemoveAmmo(m_WeaponData.ammoType, bulletsToAdd);
+            UpdateAmmoCounter();
+        }
+    }
 
 
     private void SpawnBullet()
@@ -121,11 +144,17 @@ public class WeaponMechanics : MonoBehaviour
                 bullet?.GetComponent<Projectile>().AddImpactListener();
 
                 projectilesRemainingInMag--;
+                UpdateAmmoCounter();
             }
         }
         isShooting = true;
     }
 
+    public void UpdateAmmoCounter()
+    {
+        ammoCounter.SetText($"{projectilesRemainingInMag} | {ammoManager.GetAmmoCount(m_WeaponData.ammoType)}");
+        weaponName.SetText(m_WeaponData.name);
+    }
 
     public void OnTriggerHold()
     { 
