@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
     // Used to display real time friction values.
     private float m_PlayerFriction = 0;
 
-    //Used to detect for slopes
-    private RaycastHit m_slopeHit;
 
     private Vector3 m_MoveInput;
     private Transform m_Tran;
@@ -139,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Apply gravity
-        m_PlayerVelocity.y -= m_PlayerPhysicsData.Gravity * Time.deltaTime;
+        m_PlayerVelocity.y -= m_PlayerPhysicsData.Gravity.Value * Time.deltaTime;
     }
 
     // Air control occurs when the player is in the air, it allows players to move side 
@@ -202,35 +200,17 @@ public class PlayerController : MonoBehaviour
         Accelerate(wishdir, wishspeed, m_PlayerPhysicsData.GroundSettings.Acceleration);
 
         // Reset the gravity velocity
-        m_PlayerVelocity.y = -m_PlayerPhysicsData.Gravity * Time.deltaTime;
+        m_PlayerVelocity.y = -m_PlayerPhysicsData.Gravity.Value * Time.deltaTime;
         //m_PlayerVelocity = IsOnSlope(m_PlayerVelocity);
 
         if (m_JumpQueued)
         {
-            m_PlayerVelocity.y = m_PlayerPhysicsData.JumpForce;
+            m_PlayerVelocity.y = m_PlayerPhysicsData.JumpForce.Value;
             m_JumpQueued = false;
         }
 
         
     }
-
-    //private Vector3 IsOnSlope(Vector3 velocity)
-    //{
-    //    if(Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_Character.height * 0.5f + 0.3f))
-    //    {
-    //        var slopeRotation = Quaternion.FromToRotation(Vector3.up, m_slopeHit.normal);
-    //        var adjustedVelocity = slopeRotation * velocity;
-
-    //        if(adjustedVelocity.y < 0) 
-    //        {
-    //            return adjustedVelocity;
-    //        }
-    //    }
-
-    //    return velocity;
-    //}
-
-
 
     private void ApplyFriction(float t)
     {
@@ -244,7 +224,7 @@ public class PlayerController : MonoBehaviour
         if (m_Character.isGrounded)
         {
             float control = speed < m_PlayerPhysicsData.GroundSettings.Deceleration ? m_PlayerPhysicsData.GroundSettings.Deceleration : speed;
-            drop = control * m_PlayerPhysicsData.Friction * Time.deltaTime * t;
+            drop = control * m_PlayerPhysicsData.Friction.Value * Time.deltaTime * t;
         }
 
         float newSpeed = speed - drop;

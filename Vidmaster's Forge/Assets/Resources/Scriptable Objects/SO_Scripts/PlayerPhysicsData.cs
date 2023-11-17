@@ -1,3 +1,4 @@
+using Hertzole.ScriptableValues;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,12 @@ using UnityEngine;
 public class PlayerPhysicsData : ScriptableObject
 {
     [Header("Movement")]
-    public float Friction;
-    public float Gravity;
-    public float JumpForce;
+    public ScriptableFloat Friction;
+    public ScriptableFloat Gravity;
+    public ScriptableFloat JumpForce;
     public MovementSettings GroundSettings;
     public MovementSettings AirSettings;
     public MovementSettings StrafeSettings;
+
+
 }
