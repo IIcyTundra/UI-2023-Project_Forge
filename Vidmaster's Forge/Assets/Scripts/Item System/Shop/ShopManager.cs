@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using Hertzole.ScriptableValues;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
@@ -123,6 +125,7 @@ public class ShopManager : MonoBehaviour
         selectedItem = itemListings[slotNum-1].l_currItemData; 
 
         //Populates the description panel
+        Debug.Log(selectedItem);
         itemDescriptionName.SetText(selectedItem.ItemName);
         
         itemDescriptionName.color = selectedItem.GetRarityColor();;
