@@ -19,8 +19,8 @@ MonoBehaviour:
   RateOfFire: 8
   ProjectilesPerMag: 60
   AmmoCapacity: 600
-  reloadTime: 2
-  WeaponRange: 10
+  reloadTime: 0.6
+  WeaponRange: 30
   ammoType: 0
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
     type: 3}

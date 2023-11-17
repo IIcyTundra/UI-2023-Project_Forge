@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 5972556468922716635}
-  velocity: 50
+  velocity: 200
   disableOnImpact: 1
   useLifeTime: 1
   lifeTime: 3

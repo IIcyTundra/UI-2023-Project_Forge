@@ -45,20 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - prefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
+  - prefab: {fileID: 9022262225771499686, guid: 96c7469e3348b574a8a026d5078d5824,
       type: 3}
-    amount: 100
+    amount: 150
     hideFlags: 0
     sequencialNaming: 1
     pooledObjects: []
   - prefab: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8,
       type: 3}
-    amount: 100
+    amount: 150
     hideFlags: 0
     sequencialNaming: 1
     pooledObjects: []
   - prefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
-    amount: 100
+    amount: 150
+    hideFlags: 0
+    sequencialNaming: 1
+    pooledObjects: []
+  - prefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
+      type: 3}
+    amount: 150
     hideFlags: 0
     sequencialNaming: 1
     pooledObjects: []

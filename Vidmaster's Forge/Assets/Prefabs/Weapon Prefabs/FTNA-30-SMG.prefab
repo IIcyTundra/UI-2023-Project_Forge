@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6337969343951584616}
   - component: {fileID: 6647717128306998157}
   - component: {fileID: 5126909666004404240}
+  - component: {fileID: 2478621249337025054}
   m_Layer: 6
   m_Name: FTNA-30-SMG
   m_TagString: Untagged
@@ -156,6 +157,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2478621249337025054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196965443338972719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79720769a64a35d4ba2a2b0a82a37c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTransform: {fileID: 0}
+  playerController: {fileID: 0}
+  swayAmount: 0.01
+  maxSwayAmount: 0.1
+  swaySmooth: 9
+  swayCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  swaySmoothCounteraction: 1
+  rotationSwayMultiplier: 1
+  positionSwayMultiplier: -1
+  bobFrequency: 1
+  bobAmount: 0.1
 --- !u!1 &6536768517538163323
 GameObject:
   m_ObjectHideFlags: 0

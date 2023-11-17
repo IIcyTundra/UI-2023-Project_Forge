@@ -67,19 +67,15 @@ public class BulletMechanics : MonoBehaviour
         newImpact.transform.position = transform.position;
         if(newImpact?.GetComponent<ParticleSystem>()!=null)
         {
-            StartCoroutine(StartEffect(newImpact));
-            
+            newImpact.SetActive(true);
+            newImpact.GetComponent<ParticleSystem>().Play();
+            Debug.Log(collision.gameObject.name);
+            gameObject.SetActive(false);
+
         }
                
     }
 
-    IEnumerator StartEffect(GameObject newImpact)
-    {
-        newImpact.SetActive(true);
-        newImpact.GetComponent<ParticleSystem>().Play();
-        yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
-    }
 
     
 }
