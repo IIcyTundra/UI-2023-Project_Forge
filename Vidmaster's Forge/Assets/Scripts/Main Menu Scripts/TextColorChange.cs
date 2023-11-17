@@ -22,7 +22,7 @@ public class TextColorChange : MonoBehaviour
     public void changeWithHover() {
         if (!isSelected) {
             returnText.color = Color.gray;
-            returnText.fontSize = 45;
+            returnText.fontSize = 95;
         }
     }
 
@@ -36,7 +36,7 @@ public class TextColorChange : MonoBehaviour
     public void changeWithSelect() {
         isSelected = true;
         returnText.color = Color.white;
-        returnText.fontSize = 45;
+        returnText.fontSize = 95;
     }
 
     public void changeWithDeselect() {
@@ -51,5 +51,6 @@ public class TextColorChange : MonoBehaviour
         returnText.color = returnColor;
         returnText.fontSize = originalFontSize;
     }
+
 
 }

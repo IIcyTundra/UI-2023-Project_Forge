@@ -112,12 +112,12 @@ public class VisualsController : MonoBehaviour
     public IEnumerator Confirmation(int type) {
         if ( type == 1 ) {
             resetPrompt.SetActive(true);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             resetPrompt.SetActive(false);
         }
         else {
             confirmationPrompt.SetActive(true);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             confirmationPrompt.SetActive(false);
         }
     }
