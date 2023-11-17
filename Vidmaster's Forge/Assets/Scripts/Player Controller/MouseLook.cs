@@ -1,3 +1,4 @@
+using Hertzole.ScriptableValues;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ using UnityEngine;
 [Serializable]
 public class MouseLook
 {
-    [SerializeField] private float m_XSensitivity = 2f;
-    [SerializeField] private float m_YSensitivity = 2f;
+    [SerializeField] private ScriptableFloat m_XSensitivity;
+    [SerializeField] private ScriptableFloat m_YSensitivity;
     [SerializeField] private bool m_ClampVerticalRotation = true;
-    [SerializeField] private float m_MinimumX = -90F;
-    [SerializeField] private float m_MaximumX = 90F;
-    [SerializeField] private bool m_Smooth = false;
-    [SerializeField] private float m_SmoothTime = 5f;
+    [SerializeField] private float m_MinimumX = -90f;
+    [SerializeField] private float m_MaximumX = 90f;
+    [SerializeField] private ScriptableBool m_Smooth;
+    [SerializeField] private ScriptableFloat m_SmoothTime;
     [SerializeField] private bool m_LockCursor = true;
 
     private Quaternion m_CharacterTargetRot;
@@ -24,16 +25,14 @@ public class MouseLook
 
     public void Init(Transform character, Transform camera)
     {
-
-        
         m_CharacterTargetRot = character.localRotation;
         m_CameraTargetRot = camera.localRotation;
     }
 
     public void LookRotation(Transform character, Transform camera)
     {
-        float yRot = Input.GetAxis("Mouse X") * m_XSensitivity;
-        float xRot = Input.GetAxis("Mouse Y") * m_YSensitivity;
+        float yRot = Input.GetAxis("Mouse X") * m_XSensitivity.Value;
+        float xRot = Input.GetAxis("Mouse Y") * m_YSensitivity.Value;
 
         m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
         m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
@@ -46,9 +45,9 @@ public class MouseLook
         if (m_Smooth)
         {
             character.localRotation = Quaternion.Slerp(character.localRotation, m_CharacterTargetRot,
-                m_SmoothTime * Time.deltaTime);
+                m_SmoothTime.Value * Time.deltaTime);
             camera.localRotation = Quaternion.Slerp(camera.localRotation, m_CameraTargetRot,
-                m_SmoothTime * Time.deltaTime);
+                m_SmoothTime.Value * Time.deltaTime);
         }
         else
         {

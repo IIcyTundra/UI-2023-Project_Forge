@@ -1,6 +1,7 @@
 using Hertzole.ScriptableValues;
 using Kitbashery.Gameplay;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ public class WeaponMechanics : MonoBehaviour
     [SerializeField] private Camera m_PlayerCam;
 
     private float timeBetweenShots;
+    private Quaternion initialRotation;
 
     Vector3 recoilSmoothDampVelocity;
     float recoilRotSmoothDampVelocity;
@@ -29,6 +31,7 @@ public class WeaponMechanics : MonoBehaviour
 
     AudioSource source;
     private bool isReloading;
+    private bool isCooldown;
 
     private void OnEnable()
     {
@@ -64,16 +67,6 @@ public class WeaponMechanics : MonoBehaviour
         timeBetweenShots = 1.0f / m_WeaponData.RateOfFire;
     }
 
-    private void LateUpdate()
-    {
-        // animate recoil
-        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, Vector3.zero, ref recoilSmoothDampVelocity, m_WeaponData.recoilMoveSettleTime);
-
-        recoilAngle = Mathf.SmoothDamp(recoilAngle, 0, ref recoilRotSmoothDampVelocity, m_WeaponData.recoilRotationSettleTime);
-        transform.localEulerAngles = Vector3.left * recoilAngle;
-
-    }
-
     private bool CanShoot() => (!isReloading && Time.time >= nextShotTime && projectilesRemainingInMag > 0);
 
     public void Shoot()
@@ -82,17 +75,21 @@ public class WeaponMechanics : MonoBehaviour
         {
             // Firemodes
             if (m_WeaponData.fireMode == FireMode.Burst)
-            {
-                
+            { 
                 if (shotsRemainingInBurst == 0)
                 {
+                    internalCooldown();
                     return;
                 }
                 shotsRemainingInBurst--;
             }
             else if (m_WeaponData.fireMode == FireMode.Single)
             {
-                if (!triggerReleasedSinceLastShot) return;
+                if (!triggerReleasedSinceLastShot)
+                {
+                    internalCooldown();
+                    return;
+                }
             }
 
 
@@ -101,11 +98,6 @@ public class WeaponMechanics : MonoBehaviour
             ChooseFireType();
 
 
-            // Initiate Recoil
-            transform.localPosition -= Vector3.forward * Random.Range(m_WeaponData.kickMinMax.x, m_WeaponData.kickMinMax.y);
-            recoilAngle += Random.Range(m_WeaponData.recoilAngleMinMax.x, m_WeaponData.recoilAngleMinMax.y);
-            recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
-
 
             int j = Random.Range(0, m_WeaponData.ShootAudio.Length);
             source.PlayOneShot(m_WeaponData.ShootAudio?[j]);
@@ -113,11 +105,10 @@ public class WeaponMechanics : MonoBehaviour
             projectilesRemainingInMag--;
 
             onAmmoChanged.Invoke(this, $"{projectilesRemainingInMag} | {currentAmmoTotal}");
-
-           
         }
 
     }
+
 
 
     private void ChooseFireType()
@@ -134,7 +125,6 @@ public class WeaponMechanics : MonoBehaviour
     }
 
 
-
     private void SpawnHitScan()
     {
         RaycastHit hit;
@@ -147,16 +137,14 @@ public class WeaponMechanics : MonoBehaviour
             if (flash?.GetComponent<ParticleSystem>() != null)
             {
                 StartCoroutine(StartFlash(flash));
-
             }
             if (Physics.Raycast(m_PlayerCam.transform.position, m_PlayerCam.transform.forward, out hit, m_WeaponData.WeaponRange))
             {
                 // Handle hit, apply damage, effects, etc.
                 Debug.Log("Hit: " + hit.collider.gameObject.name);
                 GameObject impact =  ObjectPools.Instance.GetPooledObject("Stones hit");
-
-                impact.transform.position = hit.transform.position;
-                StartCoroutine(StartFlash(flash));
+                impact.transform.position = hit.point;
+                StartCoroutine(StartFlash(impact));
             }
         }
     }
@@ -173,7 +161,6 @@ public class WeaponMechanics : MonoBehaviour
             if (flash?.GetComponent<ParticleSystem>() != null)
             {
                 StartCoroutine(StartFlash(flash));
-
             }
 
             GameObject bullet = ObjectPools.Instance.GetPooledObject(m_WeaponData.BulletPrefab.name);
@@ -195,7 +182,6 @@ public class WeaponMechanics : MonoBehaviour
         effect.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.5f);
         effect.SetActive(false);
-
     }
 
     public void OnReload()
@@ -217,31 +203,38 @@ public class WeaponMechanics : MonoBehaviour
         float reloadSpeed = 1 / m_WeaponData.reloadTime;
         float percent = 0;
 
-        Vector3 initialRot = transform.localEulerAngles;
-        float maxReloadAngle = 30.0f;
+        // Store the initial rotation of the weapon
+        initialRotation = transform.rotation;
 
         while (percent < 1)
         {
             percent += Time.deltaTime * reloadSpeed;
 
-            float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
-            float reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
-            transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
+            // Perform a full 360-degree rotation
+            float rotationAngle = Mathf.Lerp(0, 360, percent);
+            transform.rotation = initialRotation * Quaternion.Euler(Vector3.right * rotationAngle);
 
             yield return null;
         }
 
         isReloading = false;
-        
+
+        // Reset the rotation to the initial state
+        transform.rotation = initialRotation;
+
         currentAmmoTotal -= (m_WeaponData.ProjectilesPerMag - projectilesRemainingInMag);
         projectilesRemainingInMag = m_WeaponData.ProjectilesPerMag;
         onAmmoChanged.Invoke(this, $"{projectilesRemainingInMag} | {currentAmmoTotal}");
         
     }
 
+    private IEnumerator internalCooldown()
+    {
+        WeaponControls.ShootingHeld -= OnTriggerHold;
+        yield return new WaitForSeconds(nextShotTime);
+        WeaponControls.ShootingHeld += OnTriggerHold;
 
-
-
+    }
 
     private void OnAmmoPickup(object sender, int e)
     {
@@ -260,15 +253,15 @@ public class WeaponMechanics : MonoBehaviour
 
     public void OnTriggerHold()
     { 
-            Shoot();
-            triggerReleasedSinceLastShot = false;
+        Shoot();
+        triggerReleasedSinceLastShot = false;
     }
 
     public void OnTriggerReleased()
     {
         triggerReleasedSinceLastShot = true;
         shotsRemainingInBurst = m_WeaponData.burstCount;
-        isShooting = false;
+        
     }
 }
 

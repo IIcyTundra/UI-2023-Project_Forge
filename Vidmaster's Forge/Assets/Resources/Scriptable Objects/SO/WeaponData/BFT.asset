@@ -15,11 +15,11 @@ MonoBehaviour:
   MuzzleVelocity: 0
   fireMode: 1
   bulletType: 1
-  burstCount: 1
-  RateOfFire: 3
+  burstCount: 2
+  RateOfFire: 2
   ProjectilesPerMag: 16
   AmmoCapacity: 128
-  reloadTime: 0.3
+  reloadTime: 0.6
   WeaponRange: 0
   ammoType: 2
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
