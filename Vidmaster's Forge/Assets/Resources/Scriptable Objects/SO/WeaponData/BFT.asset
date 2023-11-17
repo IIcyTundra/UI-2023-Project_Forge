@@ -20,7 +20,7 @@ MonoBehaviour:
   ProjectilesPerMag: 16
   AmmoCapacity: 128
   reloadTime: 0.6
-  WeaponRange: 0
+  WeaponRange: 15
   ammoType: 2
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
     type: 3}

@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     public GameObject Audio, Visuals, Gameplay;
-    public ScriptableFloatEvent GUIChange;
     [SerializeField] AudioMixer mixer;
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
@@ -36,21 +35,21 @@ public class SettingsManager : MonoBehaviour
     }
 
     #region Scene Swapping
-    private void OnAudioClicked()
+    public void OnAudioClicked()
     {
         Audio.SetActive(true);
         Visuals.SetActive(false);
         Gameplay.SetActive(false);
     }
 
-    private void OnVisualsClicked()
+    public void OnVisualsClicked()
     {
         Audio.SetActive(false);
         Visuals.SetActive(true);
         Gameplay.SetActive(false);
     }
 
-    private void OnGameplayClicked()
+    public void OnGameplayClicked()
     {
         Audio.SetActive(false);
         Visuals.SetActive(false);
@@ -101,7 +100,7 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void Reset(string MenuType)
+    public void OnReset(string MenuType)
     {
         if (MenuType == "Audio")
         {
@@ -125,8 +124,6 @@ public class SettingsManager : MonoBehaviour
 
 
     #region Visual Settings
-
-
 
 
     #endregion

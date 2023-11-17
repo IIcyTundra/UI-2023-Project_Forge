@@ -77,13 +77,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 9125586768988726656}
   m_MouseLook:
-    m_XSensitivity: 2
-    m_YSensitivity: 2
+    m_XSensitivity: {fileID: 11400000, guid: f1ebc1b27ca188349b7f439a3a7e5f94, type: 2}
+    m_YSensitivity: {fileID: 11400000, guid: b5b0aaf4000a8ba449de0afc2751fec5, type: 2}
     m_ClampVerticalRotation: 1
     m_MinimumX: -90
     m_MaximumX: 90
-    m_Smooth: 0
-    m_SmoothTime: 5
+    m_Smooth: {fileID: 11400000, guid: d3319be96b450ea4eb518861338adead, type: 2}
+    m_SmoothTime: {fileID: 11400000, guid: 38e7ac695534b204b9d8b6b7a569b75d, type: 2}
     m_LockCursor: 1
   m_PlayerPhysicsData: {fileID: 11400000, guid: aff03a5c172084e42a3c188c4aa590ed,
     type: 2}

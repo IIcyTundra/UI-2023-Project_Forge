@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43171fd1f78fd6b43932ad229364bf0b, type: 3}
   m_Name: PlayerPhysicsData
   m_EditorClassIdentifier: 
-  Friction: 6
-  Gravity: 20
-  JumpForce: 8
+  Friction: {fileID: 11400000, guid: 3c03a62cc98809f4992fb60acbe6c129, type: 2}
+  Gravity: {fileID: 11400000, guid: e2ace2056f236774d8f0328639ca0301, type: 2}
+  JumpForce: {fileID: 11400000, guid: 73928faba76f03d459b1eacd5c148420, type: 2}
   GroundSettings:
     MaxSpeed: 10
     Acceleration: 10

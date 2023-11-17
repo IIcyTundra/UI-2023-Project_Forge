@@ -12,6 +12,12 @@ public class PlayerGUIHandler : MonoBehaviour
     [SerializeField] private ScriptableStringEvent onAmmoChanged;
     [SerializeField] private ScriptableStringEvent onHealthChanged;
 
+    private void Awake()
+    {
+        onWeaponChanged.OnInvoked += SetCurrentWeapon;
+        onAmmoChanged.OnInvoked += SetCurrentAmmo;
+        onHealthChanged.OnInvoked += SetCurrentHealth;
+    }
 
     private void OnEnable()
     {

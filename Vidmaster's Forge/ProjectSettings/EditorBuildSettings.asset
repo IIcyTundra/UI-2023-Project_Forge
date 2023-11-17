@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Weapon Testing Scene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/View Manager.unity
+    guid: 788180b85d819394586949ff4bf7e84e
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: a2f20ee983cb4435badcdbc53bceee92
+  - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: 23cf9cf0b309c7f4880e958e6fb7f3a8
+  - enabled: 1
+    path: Assets/Scenes/Firefight.unity
+    guid: e6a3928faba65b943b8d029dd8864930
+  - enabled: 1
+    path: Assets/Scenes/WeaponTesting.unity
+    guid: f78114f8a28117a42867b545b9a1673a
   m_configObjects: {}
