@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4446352392291902159}
   - component: {fileID: 7096670534104219955}
   - component: {fileID: 5972556468922716635}
-  - component: {fileID: 3291175014004795503}
+  - component: {fileID: 3689325830174219260}
   m_Layer: 0
   m_Name: BulletTest
   m_TagString: Untagged
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604631970594432925}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &7096670534104219955
 SphereCollider:
@@ -77,12 +77,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &3291175014004795503
+  m_Constraints: 16
+  m_CollisionDetection: 1
+--- !u!114 &3689325830174219260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,62 +91,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 604631970594432925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49df814edf10eda419221794ab9a80c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc1a2000125b424593b7fafbec850bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 1
-  maxCollisions: 50
-  requiredTags: []
-  ignoredColliders: []
-  enterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3291175014004795503}
-        m_TargetAssemblyTypeName: Kitbashery.Gameplay.Projectile, kitbashery.game-kit
-        m_MethodName: Impact
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  stayEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  lastContact: {fileID: 0}
-  colliders: []
-  eventCollider: {fileID: 0}
   rigid: {fileID: 5972556468922716635}
-  applyForceOnImpact: 1
-  impactForce: 0
-  velocity: 500
-  modifyHealthOnImpact: 1
-  healthEffect:
-    name: 
-    modifier: 0
-    amount: 1
-    times: 1
-    interval: 0
+  velocity: 50
   disableOnImpact: 1
-  ricochets: 0
-  onRicochet:
-    m_PersistentCalls:
-      m_Calls: []
   useLifeTime: 1
-  lifeTime: 10
-  seekTarget: 0
-  target: {fileID: 0}
-  targetMode: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  triggerInteraction: 1
-  targetTag: 
-  searchRange: 10
-  seekSpeed: 10
+  lifeTime: 3
+  ImpactEffect: {fileID: 484368387861551534, guid: 9b21333b068a5084ba09535839bee3c8,
+    type: 3}
+  BulletModel: {fileID: 604631970594432925}

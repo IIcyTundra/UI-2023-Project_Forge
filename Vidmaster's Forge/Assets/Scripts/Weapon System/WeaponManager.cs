@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
-using System;
-using TMPro;
+using Hertzole.ScriptableValues;
 
 public class WeaponManager : MonoBehaviour
 {
-    private WeaponMechanics WeaponVars;
+
+    [SerializeField] private ScriptableStringEvent onWeaponChanged;
 
     [Header("References")]
     [SerializeField] private Transform[] weapons;
@@ -88,14 +86,8 @@ public class WeaponManager : MonoBehaviour
     }
     private void OnWeaponSelected() 
     {
-        // Need to update the ammo counter upon switching the weapon, every time
-        WeaponMechanics selectedWeaponMechanics = weapons[selectedWeapon].GetComponent<WeaponMechanics>();
-        selectedWeaponMechanics.UpdateAmmoCounter();
+        onWeaponChanged?.Invoke(this, weapons[selectedWeapon].name);
     }
 
-    public void OnAmmoPickup()
-    {
-        WeaponMechanics selectedWeaponMechanics = weapons[selectedWeapon].GetComponent<WeaponMechanics>();
-        selectedWeaponMechanics.UpdateAmmoCounter();
-    }
+   
 }

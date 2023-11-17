@@ -14,19 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MuzzleVelocity: 0
   fireMode: 1
-  burstCount: 2
-  RateOfFire: 4
+  bulletType: 1
+  burstCount: 1
+  RateOfFire: 3
   ProjectilesPerMag: 16
+  AmmoCapacity: 128
   reloadTime: 0.3
   WeaponRange: 0
-  ammoType: 1
+  ammoType: 2
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
+    type: 3}
+  FlashPrefab: {fileID: 1743301284569550, guid: bff53eea8bd9fdb41800486aaaf72fa6,
     type: 3}
   ShootAudio:
   - {fileID: 8300000, guid: 677246d9d87fdcc429c567fd6fb745ca, type: 3}
   - {fileID: 8300000, guid: 594d405d04589e7469e5cfd69761ecec, type: 3}
   - {fileID: 8300000, guid: 182b9935e76e7214c9d929a7e42ee525, type: 3}
   EmptyMagAudio: {fileID: 8300000, guid: 4b00ad872bdeae342a19e586a4471b6f, type: 3}
+  ReloadAudio: {fileID: 8300000, guid: 87291cb8552cfb046a230301b5899627, type: 3}
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMoveSettleTime: 0.1

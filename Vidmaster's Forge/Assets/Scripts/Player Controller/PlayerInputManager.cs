@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PlayerInputReader")]
 public class PlayerInputManager : ScriptableObject, PlayerInput.IPlayerActionMapActions
 {
-    [SerializeField] private PlayerStateMachine m_StateMachine;
     private PlayerInput m_PlayerInput;
 
     private void OnEnable()
@@ -22,7 +21,7 @@ public class PlayerInputManager : ScriptableObject, PlayerInput.IPlayerActionMap
     {
         m_PlayerInput.PlayerActionMap.Jump.performed += context =>
         {
-            m_StateMachine.IsJumpPressed = context.ReadValue<bool>();
+            //m_StateMachine.IsJumpPressed = context.ReadValue<bool>();
         };
         
     }
@@ -41,7 +40,7 @@ public class PlayerInputManager : ScriptableObject, PlayerInput.IPlayerActionMap
     {
         m_PlayerInput.PlayerActionMap.Move.performed += context =>
         {
-            m_StateMachine.m_MoveInput = context.ReadValue<Vector2>();
+            //m_StateMachine.m_MoveInput = context.ReadValue<Vector2>();
         };
     }
 

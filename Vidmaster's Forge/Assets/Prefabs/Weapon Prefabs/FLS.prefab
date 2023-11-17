@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1444504383058182483}
   - component: {fileID: 2841350293968048287}
-  - component: {fileID: 5529216546076058749}
   - component: {fileID: 7281963458055799215}
   m_Layer: 6
   m_Name: FLS
@@ -82,54 +81,10 @@ MonoBehaviour:
   m_WeaponData: {fileID: 11400000, guid: 680e639aea448ac4e8f71f68a84782a5, type: 2}
   WeaponMuzzles:
   - {fileID: 2845790644146264053}
+  onAmmoChanged: {fileID: 11400000, guid: b52ccc2af43f89245b308daa3fcc2577, type: 2}
+  onAmmoGrabbed: {fileID: 11400000, guid: 9cdc876a8ad218d44a661c180dffce1c, type: 2}
   m_PlayerCam: {fileID: 0}
   isShooting: 0
---- !u!114 &5529216546076058749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018355997863474240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79720769a64a35d4ba2a2b0a82a37c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponTransform: {fileID: 0}
-  playerController: {fileID: 0}
-  swayAmount: 0.01
-  maxSwayAmount: 0.1
-  swaySmooth: 9
-  swayCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  swaySmoothCounteraction: 1
-  rotationSwayMultiplier: 1
-  positionSwayMultiplier: -1
-  bobFrequency: 5
-  bobAmount: 0.1
 --- !u!82 &7281963458055799215
 AudioSource:
   m_ObjectHideFlags: 0

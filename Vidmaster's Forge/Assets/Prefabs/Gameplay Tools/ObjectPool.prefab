@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018626735003424325}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5896746641569900396
 MonoBehaviour:
@@ -47,6 +47,17 @@ MonoBehaviour:
   pools:
   - prefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
       type: 3}
+    amount: 100
+    hideFlags: 0
+    sequencialNaming: 1
+    pooledObjects: []
+  - prefab: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8,
+      type: 3}
+    amount: 100
+    hideFlags: 0
+    sequencialNaming: 1
+    pooledObjects: []
+  - prefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
     amount: 100
     hideFlags: 0
     sequencialNaming: 1
