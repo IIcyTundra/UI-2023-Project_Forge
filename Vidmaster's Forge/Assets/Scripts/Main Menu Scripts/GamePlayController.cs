@@ -10,26 +10,28 @@ public class GamePlayController : MonoBehaviour
 
     [SerializeField] private Text sensitivityTextValue = null;
     [SerializeField] private Slider sensitivitySlider = null;
-    [SerializeField] private int defaultSensitivity = 4;
-    public int mainControllerSensitivity = 4;
+    [SerializeField] private int defaultSensitivity = 2;
+    public int mainControllerSensitivity = 2;
 
     [SerializeField] private GameObject confirmationPrompt = null;
     [SerializeField] private GameObject resetPrompt = null;
 
-    public void SetSensitivity(float sensitivity) {
+
+    public void SetSensitivity() {
+        float sensitivity = sensitivitySlider.value;
         mainControllerSensitivity = Mathf.RoundToInt(sensitivity);
-        sensitivityTextValue.text = sensitivity.ToString("0");
+        sensitivityTextValue.text = mainControllerSensitivity.ToString("0");
     }
 
     public void GamePlayApply(int num) {
-        PlayerPrefs.SetFloat("masterSensitivity", mainControllerSensitivity);
+        PlayerPrefs.SetFloat("Sensitivity", mainControllerSensitivity);
         PlayerPrefs.Save();
         StartCoroutine(Confirmation(num));
     }
 
     public void Reset(string MenuType) {
         if (MenuType == "GamePlay") {
-            sensitivityTextValue.text = defaultSensitivity.ToString("0");
+            sensitivityTextValue.text = defaultSensitivity.ToString("2");
             sensitivitySlider.value = defaultSensitivity;
             mainControllerSensitivity = defaultSensitivity;
             GamePlayApply(1);
