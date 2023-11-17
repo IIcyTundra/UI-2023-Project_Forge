@@ -15,7 +15,7 @@ public class VisualsController : MonoBehaviour
 
     [SerializeField] private Slider brightnessSlider = null;
     [SerializeField] private Text brightnessTextValue = null;
-    [SerializeField] private float defaultBrightness = 1;
+    [SerializeField] private float defaultBrightness = 1.0f;
 
     [SerializeField] private GameObject confirmationPrompt = null;
     [SerializeField] private GameObject resetPrompt = null;
@@ -26,7 +26,7 @@ public class VisualsController : MonoBehaviour
 
     void Start() {
 
-        qualityDropdown.value = PlayerPrefs.GetInt("optionvalue", 3);
+        qualityDropdown.value = PlayerPrefs.GetInt("optionvalue", 1);
 
         resolutions = Screen.resolutions;
         isFullScreen.isOn = PlayerPrefs.GetInt("fullscreen") == 0;
@@ -73,7 +73,8 @@ public class VisualsController : MonoBehaviour
         QualitySettings.SetQualityLevel(quality);
     }
 
-    public void SetBrightness(float brightness) {
+    public void SetBrightness() {
+        float brightness = brightnessSlider.value;
         _brightnessLevel = brightness;
         brightnessTextValue.text = brightness.ToString("0.0");
     }
@@ -81,10 +82,7 @@ public class VisualsController : MonoBehaviour
 
     public void VisualsApply(int num) {
         PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
-
        // PlayerPrefs.SetInt("masterQuality",)
-
-
 
         StartCoroutine(Confirmation(num));
     }
@@ -95,11 +93,8 @@ public class VisualsController : MonoBehaviour
             brightnessSlider.value = defaultBrightness;
             brightnessTextValue.text = defaultBrightness.ToString("0.0");
 
-            // qualityDropdown.value = 1;
-            // QualitySettings.SetQualityLevel(1);
-
-            // isFullScreen.isOn = false;
-            // Screen.fullscreen = false;
+             qualityDropdown.value = 1;
+             QualitySettings.SetQualityLevel(1);
 
             // Resolution currentResolution = Screen.currentResolution;
             // Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullscreen);
