@@ -92,6 +92,11 @@
                 "value": "{\"m_Value\":true}"
             },
             {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "editor.stripProBuilderScriptsOnBuild",
+                "value": "{\"m_Value\":true}"
+            },
+            {
                 "type": "UnityEngine.ProBuilder.RectSelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.dragSelectRectMode",
                 "value": "{\"m_Value\":0}"
@@ -154,12 +159,12 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastPivotPosition",
-                "value": "{\"m_Value\":{\"x\":0.6082763671875,\"y\":-2.0502634048461916,\"z\":-0.7000846862792969}}"
+                "value": "{\"m_Value\":{\"x\":-0.002256512874737382,\"y\":-0.9952439665794373,\"z\":-0.028450965881347657}}"
             },
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
-                "value": "{\"m_Value\":{\"x\":-1.2165565490722657,\"y\":4.100526809692383,\"z\":1.4001693725585938}}"
+                "value": "{\"m_Value\":{\"x\":0.004512310028076172,\"y\":1.9904884099960328,\"z\":0.056902408599853519}}"
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",

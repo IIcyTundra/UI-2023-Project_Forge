@@ -1,14 +1,13 @@
-using Hertzole.ScriptableValues;
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    public GameObject Audio, Visuals, Gameplay;
+    public GameObject Audio, Visuals, Gameplay, MainMenu;
     [SerializeField] AudioMixer mixer;
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
@@ -22,6 +21,7 @@ public class SettingsManager : MonoBehaviour
 
     private void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             LoadVolume();
@@ -32,6 +32,11 @@ public class SettingsManager : MonoBehaviour
             SetMusicVolume();
             SetSFXVolume();
         }
+
+        if(SceneManager.GetSceneByName("MainMenu").isLoaded)
+            MainMenu.SetActive(false);
+        else
+            MainMenu.SetActive(true);
     }
 
     #region Scene Swapping

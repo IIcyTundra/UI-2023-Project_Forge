@@ -17,7 +17,11 @@ public class MouseLook
     [SerializeField] private float m_MaximumX = 90F;
     [SerializeField] private bool m_Smooth = false;
     [SerializeField] private float m_SmoothTime = 5f;
-    [SerializeField] private bool m_LockCursor = true;
+    [SerializeField] public bool m_LockCursor = true;
+    [SerializeField] private float swayAmount = 1f;        // Amount of sway to apply
+    [SerializeField] private float maxSwayAngle = 10f;     // Maximum sway angle in degrees
+    [SerializeField] private float swaySmoothness = 5f;    // Smoothness of the sway motion
+    private float targetSwayAngle;       // Target sway angle based on player movement
 
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
@@ -56,6 +60,18 @@ public class MouseLook
         }
 
         UpdateCursorLock();
+    }
+
+    public void CamSway(Transform camera)
+    {
+        float HoriMovement = Input.GetAxisRaw("Horizontal");
+        targetSwayAngle = Mathf.Clamp(HoriMovement * swayAmount, -maxSwayAngle, maxSwayAngle);
+
+        // Apply sway rotation to the camera transform
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, -targetSwayAngle);
+        camera.localRotation = Quaternion.Lerp(camera.localRotation, targetRotation, Time.deltaTime * swaySmoothness);
+        //Debug.Log(targetSwayAngle + " "+ HoriMovement);
+
     }
 
     public void SetCursorLock(bool value)

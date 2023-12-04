@@ -16,8 +16,8 @@ MonoBehaviour:
   isReadOnly: 0
   resetValueOnStart: 1
   setEqualityCheck: 1
-  value: 0
-  defaultValue: 5
+  value: 8
+  defaultValue: 8
   onValueChanging:
     m_PersistentCalls:
       m_Calls: []

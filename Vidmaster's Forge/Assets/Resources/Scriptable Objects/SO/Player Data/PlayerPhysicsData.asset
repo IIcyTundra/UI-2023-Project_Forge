@@ -17,13 +17,13 @@ MonoBehaviour:
   JumpForce: {fileID: 11400000, guid: 73928faba76f03d459b1eacd5c148420, type: 2}
   GroundSettings:
     MaxSpeed: 10
-    Acceleration: 10
-    Deceleration: 10
+    Acceleration: 6
+    Deceleration: 6
   AirSettings:
     MaxSpeed: 5
     Acceleration: 5
     Deceleration: 5
   StrafeSettings:
-    MaxSpeed: 8
+    MaxSpeed: 5
     Acceleration: 5
     Deceleration: 5

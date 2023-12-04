@@ -2,20 +2,19 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Item), true)]
-public class ItemDataEditor : Editor
+public class ItemDataEditor
 {
-    public override void OnInspectorGUI()
-    {
-        Item itemData = (Item)target;
+    //public override void OnInspectorGUI()
+    //{
+    //    Item itemData = (Item)target;
 
-        // Display the default inspector
-        DrawDefaultInspector();
+    //    // Display the default inspector
+    //    DrawDefaultInspector();
 
-        if (GUILayout.Button("Generate Stats"))
-        {
-            itemData.GenerateStats();
-            EditorUtility.SetDirty(target);
-        }
-    }
+    //    if (GUILayout.Button("Generate Stats"))
+    //    {
+    //        itemData.GenerateStats();
+    //        EditorUtility.SetDirty(target);
+    //    }
+    //}
 }

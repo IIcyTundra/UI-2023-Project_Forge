@@ -131,7 +131,7 @@ public class WeaponMechanics : MonoBehaviour
         foreach (Transform muzzle in WeaponMuzzles)
         {
             GameObject flash = ObjectPools.Instance.GetPooledObject(m_WeaponData.FlashPrefab.name);
-
+            flash.transform.SetParent(muzzle.transform); 
             flash.transform.position = muzzle.position;
             flash.transform.forward = muzzle.forward;
             if (flash?.GetComponent<ParticleSystem>() != null)
@@ -155,7 +155,7 @@ public class WeaponMechanics : MonoBehaviour
         foreach (Transform muzzle in WeaponMuzzles)
         {
             GameObject flash = ObjectPools.Instance.GetPooledObject(m_WeaponData.FlashPrefab.name);
-
+            flash.transform.SetParent(muzzle.transform);
             flash.transform.position = muzzle.position;
             flash.transform.forward = muzzle.forward;
             if (flash?.GetComponent<ParticleSystem>() != null)

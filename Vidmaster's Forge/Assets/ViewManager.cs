@@ -10,7 +10,13 @@ public class ViewManager : MonoBehaviour
 
     public void UnloadScene(string sceneName)
     {
+        if(SceneManager.GetSceneByName("Firefight").isLoaded)
+            SceneManager.UnloadSceneAsync("Firefight");
+        if (SceneManager.GetSceneByName("WeaponTesting").isLoaded)
+            SceneManager.UnloadSceneAsync("WeaponTesting");
+
         SceneManager.UnloadSceneAsync(sceneName);
+
     }
     public void QuitGame()
     {

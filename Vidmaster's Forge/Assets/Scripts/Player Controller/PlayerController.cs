@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -72,6 +72,12 @@ public class PlayerController : MonoBehaviour
 
         // Move the character.
         m_Character.Move(m_PlayerVelocity * Time.deltaTime);
+
+        if(Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            SceneManager.LoadSceneAsync("SettingsMenu", LoadSceneMode.Additive);
+            m_MouseLook.m_LockCursor = false;
+        }
     }
 
     // Queues the next jump.

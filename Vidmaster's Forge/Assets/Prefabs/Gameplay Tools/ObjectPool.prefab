@@ -47,7 +47,7 @@ MonoBehaviour:
   pools:
   - prefab: {fileID: 9022262225771499686, guid: 96c7469e3348b574a8a026d5078d5824,
       type: 3}
-    amount: 150
+    amount: 200
     hideFlags: 0
     sequencialNaming: 1
     pooledObjects: []

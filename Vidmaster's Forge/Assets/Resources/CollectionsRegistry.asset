@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ea3b2cb3ab4e4789600a08dee5869, type: 3}
   m_Name: CollectionsRegistry
   m_EditorClassIdentifier: 
-  collections: []
+  collections:
+  - {fileID: 11400000, guid: 6872223770142e04fb0f5b748c03ca85, type: 2}
+  - {fileID: 11400000, guid: a3031302a5b232e4caafd7a69a077f62, type: 2}
+  - {fileID: 11400000, guid: d398d10278794584f89475da42a529c5, type: 2}
+  - {fileID: 11400000, guid: 6cd65a5a675803843a04edf19451d8b0, type: 2}
   autoSearchForCollections: 1

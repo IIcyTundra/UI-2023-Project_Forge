@@ -7,7 +7,7 @@ public class WeaponSway : MonoBehaviour
 {
     [SerializeField] private Transform weaponTransform;
 
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerHandler playerController;
 
     [Header("Sway Properties")]
     [SerializeField] private float swayAmount = 0.01f;
@@ -67,12 +67,12 @@ public class WeaponSway : MonoBehaviour
         Quaternion swayRotation = initialRotation * Quaternion.Euler(Mathf.Rad2Deg * rotationSwayMultiplier * new Vector3(-sway.y, sway.x, 0));
         weaponTransform.localRotation = Quaternion.Slerp(weaponTransform.localRotation, swayRotation, swayCurve.Evaluate(timeFactor));
 
-        if (playerController.m_Character.velocity.magnitude > 0.1f)
-        {
-            float moveAmount = Mathf.Sin(Time.time * bobFrequency) * bobAmount;
-            Vector3 bobPosition = initialPosition + new Vector3(0, moveAmount, 0);
-            weaponTransform.localPosition = Vector3.Lerp(weaponTransform.localPosition, bobPosition, timeFactor);
-        }
+        //if (playerController.m_Character.velocity.magnitude > 0.1f)
+        //{
+        //    float moveAmount = Mathf.Sin(Time.time * bobFrequency) * bobAmount;
+        //    Vector3 bobPosition = initialPosition + new Vector3(0, moveAmount, 0);
+        //    weaponTransform.localPosition = Vector3.Lerp(weaponTransform.localPosition, bobPosition, timeFactor);
+        //}
     }
 
 
