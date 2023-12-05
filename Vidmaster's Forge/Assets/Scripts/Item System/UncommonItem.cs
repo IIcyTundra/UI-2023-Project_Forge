@@ -11,7 +11,11 @@ public class UncommonItem : Item
         string statString = "";
         for(int i = 0; i < ItemStats.Count; i++)
         {
-            statString += $"\n{ItemStats[i].StatModifier.ToString()} {ItemStats[i].StatToModify.name}";
+            if(ItemStats[i].StatModifier >= 0){
+                statString += $"\n+{ItemStats[i].StatModifier.ToString()} {ItemStats[i].StatToModify.name}";
+            }else{
+                statString += $"\n{ItemStats[i].StatModifier.ToString()} {ItemStats[i].StatToModify.name}";
+            }
         }
 
         return $"Rarity: {itemRarity} \nCost: {ItemCost} \n\nEffects: {statString}";
