@@ -28,9 +28,9 @@ public enum AmmoType
 [CreateAssetMenu(fileName = "WeaponData", menuName = "Weapon System/Weapon Data"  )]
 public class WeaponData : ScriptableObject
 {
-    
+
     [Header("Stats")]
-    public float MuzzleVelocity;
+    public int DamageAmount;
     public FireMode fireMode = FireMode.Single;
     public BulletType bulletType = BulletType.hitscan;
     public int burstCount = 1;

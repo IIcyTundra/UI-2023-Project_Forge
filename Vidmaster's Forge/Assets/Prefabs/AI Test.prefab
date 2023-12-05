@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2021984396764237696}
   - component: {fileID: 8721134153899122671}
   - component: {fileID: 1261032679804970229}
+  - component: {fileID: 7903193145717668394}
   m_Layer: 0
   m_Name: AI Test
   m_TagString: Untagged
@@ -44,7 +45,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3489308873558082115}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -69,24 +70,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31468fd4a164f5449233c1e497a094e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  EnemyAnimator: {fileID: 414131313822289239}
+  agent: {fileID: 2021984396764237696}
+  enemyAnimator: {fileID: 414131313822289239}
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8192
-  Player:
+  playerLayer:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 2048
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  TimePerAttack: 1000
-  SightRange: 20
-  AttackRange: 4
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  BulletSpeed: 0
-  EName: 
+  walkPointRange: 10.09
+  timePerAttack: 1
+  sightRange: 20
+  attackRange: 8
+  bulletSpeed: 0
+  health: {fileID: 7903193145717668394}
   projectile: {fileID: 0}
 --- !u!136 &1261032679804970229
 CapsuleCollider:
@@ -111,6 +110,46 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &7903193145717668394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489308873558082115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba5fb71024046749af5e8b7a9b5caf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <invinsible>k__BackingField: 0
+  bonusHealth: {fileID: 0}
+  hitPoints: 200
+  <overhealExpand>k__BackingField: 0
+  <canRegen>k__BackingField: 1
+  regenPoints: 5
+  regenRate: 3
+  onReceivedDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8721134153899122671}
+        m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8053273703723123338
 PrefabInstance:
   m_ObjectHideFlags: 0

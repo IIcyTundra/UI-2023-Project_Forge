@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2641741130526118748}
   - component: {fileID: 7262446359324861759}
   - component: {fileID: 1033700619336458665}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpecialAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupBox: {fileID: 7262446359324861759}
-  AmmoInfo: {fileID: 0}
   AmmoGrabbed: {fileID: 0}
   rotationSpeed: 50
   floatSpeed: 0.5
   floatHeight: 0.25
+  ammoGiven: 0

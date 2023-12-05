@@ -68,6 +68,16 @@ public class SettingsManager : MonoBehaviour
     public void OnReturn()
     {
         SceneManager.UnloadSceneAsync("SettingsMenu");
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void OnMainMenu()
+    {
+        SceneManager.UnloadSceneAsync("SettingsMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
     #endregion
 

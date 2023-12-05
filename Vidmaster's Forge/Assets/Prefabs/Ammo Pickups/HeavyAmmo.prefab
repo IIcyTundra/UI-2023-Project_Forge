@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2409060913704727311}
   - component: {fileID: 5077000751572224942}
   - component: {fileID: 7170805675346508306}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HeavyAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupBox: {fileID: 2409060913704727311}
-  AmmoInfo: {fileID: 0}
   AmmoGrabbed: {fileID: 11400000, guid: 9cdc876a8ad218d44a661c180dffce1c, type: 2}
   rotationSpeed: 50
   floatSpeed: 0.5
   floatHeight: 0.25
+  ammoGiven: 0
 --- !u!114 &7170805675346508306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e9d399147db5b478c83134f21f23d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spinSpeed: 5

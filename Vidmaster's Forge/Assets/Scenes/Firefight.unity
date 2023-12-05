@@ -408,6 +408,52 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &193032084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193032085}
+  - component: {fileID: 193032086}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193032085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193032084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 530677027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193032086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193032084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83d327ed8c75c64d940abd8fad8264c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIspawners:
+  - {fileID: 1732687554}
 --- !u!1 &398268376
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +505,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 8192
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 1
   m_IgnoreNavMeshAgent: 1
@@ -467,7 +513,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 70623cab0c6318948beb3caa4f9d949a, type: 2}
   m_BuildHeightMesh: 0
@@ -628,9 +674,11 @@ Transform:
   - {fileID: 398268377}
   - {fileID: 1656548240}
   - {fileID: 1268606408}
+  - {fileID: 1732687553}
   - {fileID: 1246859923}
   - {fileID: 1606064342}
   - {fileID: 781300935}
+  - {fileID: 193032085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &551236646
@@ -4867,7 +4915,7 @@ Transform:
   m_GameObject: {fileID: 1606064341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.079086, y: 2.7224102, z: -21.799282}
+  m_LocalPosition: {x: -53.079086, y: 2.25, z: -21.799282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4944,6 +4992,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 1170862068225304376, guid: bf36d4543306b40459a4733d889b6039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -554
+      objectReference: {fileID: 0}
     - target: {fileID: 1175786410571626228, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
       propertyPath: m_CameraType
@@ -4973,6 +5026,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523544936911665181, guid: bf36d4543306b40459a4733d889b6039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -554.0005
       objectReference: {fileID: 0}
     - target: {fileID: 1618265819768404464, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
@@ -5262,17 +5320,17 @@ PrefabInstance:
     - target: {fileID: 8646180134440654517, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.98
+      value: 9.37245
       objectReference: {fileID: 0}
     - target: {fileID: 8646180134440654517, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.67
+      value: 1.6697612
       objectReference: {fileID: 0}
     - target: {fileID: 8646180134440654517, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.75
+      value: -18.143
       objectReference: {fileID: 0}
     - target: {fileID: 8646180134440654517, guid: bf36d4543306b40459a4733d889b6039,
         type: 3}
@@ -5506,6 +5564,210 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1732687552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732687553}
+  - component: {fileID: 1732687554}
+  m_Layer: 0
+  m_Name: Ai Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732687553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732687552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.995282, y: 2.7364678, z: -23.852438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 530677027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1732687554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732687552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a746ef034d374934ca8e42907c796477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <canSpawn>k__BackingField: 1
+  <spawnForward>k__BackingField: 1
+  <forwardDistance>k__BackingField: 0
+  spawnOffset: {x: 0, y: 0, z: 0}
+  waves:
+  - interval: 3
+    spawnAmount: 3
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 5
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 10
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 30
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  lastSpawned: {fileID: 0}
+  currentWave: 0
+  currentWaveSpawns: 0
 --- !u!1 &1755111671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,7 +5782,7 @@ GameObject:
   - component: {fileID: 1755111674}
   - component: {fileID: 1755111673}
   - component: {fileID: 1755111672}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a9763bda41eb449b9142afe1539ec1, type: 3}
   m_Name: MA75-GL
   m_EditorClassIdentifier: 
-  MuzzleVelocity: 0
+  DamageAmount: 20
   fireMode: 2
   bulletType: 0
   burstCount: 5
