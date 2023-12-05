@@ -21,7 +21,7 @@ MonoBehaviour:
   AmmoCapacity: 128
   reloadTime: 0.6
   WeaponRange: 15
-  ammoType: 2
+  ammoType: 0
   BulletPrefab: {fileID: 9022262225771499686, guid: 3f6c8ae91d25bc84cb96e359d2859f6d,
     type: 3}
   FlashPrefab: {fileID: 1743301284569550, guid: bff53eea8bd9fdb41800486aaaf72fa6,

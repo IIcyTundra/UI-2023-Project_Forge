@@ -8,13 +8,14 @@ using UnityEngine;
 public class AmmoPickup : MonoBehaviour
 {
     [SerializeField] private BoxCollider pickupBox;
-    [SerializeField] private AmmoStats AmmoInfo;
 
     [SerializeField] private ScriptableIntEvent AmmoGrabbed;
 
     [SerializeField] private float rotationSpeed = 50f;
     [SerializeField] private float floatSpeed = 0.5f;
     [SerializeField] private float floatHeight = 0.5f;
+
+    [SerializeField] private int ammoGiven;
 
     private Vector3 initialPosition;
     
@@ -38,7 +39,8 @@ public class AmmoPickup : MonoBehaviour
         Debug.Log($"Collision with {other.tag}");
         if (other.CompareTag("Player")){
             // This is where to grab the ammo manager from the player
-            AmmoGrabbed?.Invoke(this, AmmoInfo.AmmoAmount);
+            AmmoGrabbed?.Invoke(this, ammoGiven);
+            gameObject.SetActive(false);
         }
     }
 }

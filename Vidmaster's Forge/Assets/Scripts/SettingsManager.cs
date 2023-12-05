@@ -33,13 +33,17 @@ public class SettingsManager : MonoBehaviour
             SetSFXVolume();
         }
 
-        if(SceneManager.GetSceneByName("MainMenu").isLoaded)
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetSceneByName("MainMenu").isLoaded)
             MainMenu.SetActive(false);
         else
             MainMenu.SetActive(true);
     }
 
-    #region Scene Swapping
+    #region Scene/Setting Swapping
     public void OnAudioClicked()
     {
         Audio.SetActive(true);
@@ -59,6 +63,11 @@ public class SettingsManager : MonoBehaviour
         Audio.SetActive(false);
         Visuals.SetActive(false);
         Gameplay.SetActive(true);
+    }
+
+    public void OnReturn()
+    {
+        SceneManager.UnloadSceneAsync("SettingsMenu");
     }
     #endregion
 
