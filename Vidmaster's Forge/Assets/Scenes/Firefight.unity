@@ -452,8 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d327ed8c75c64d940abd8fad8264c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIspawners:
-  - {fileID: 1732687554}
+  spawners: []
 --- !u!1 &398268376
 GameObject:
   m_ObjectHideFlags: 0
