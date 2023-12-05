@@ -141,10 +141,11 @@ public class WeaponMechanics : MonoBehaviour
             if (Physics.Raycast(m_PlayerCam.transform.position, m_PlayerCam.transform.forward, out hit, m_WeaponData.WeaponRange))
             {
                 // Handle hit, apply damage, effects, etc.
-                if(hit.collider.gameObject.layer == LayerMask.GetMask("Enemy"))
+                if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
                     hit.collider.gameObject?.GetComponent<Health>().ModifyHealth(HealthModifiers.damage, m_WeaponData.DamageAmount);
                 }
+                Debug.Log(hit.collider.gameObject.name);
                 GameObject impact =  ObjectPools.Instance.GetPooledObject("Stones hit");
                 impact.transform.position = hit.point;
                 StartCoroutine(StartFlash(impact));
