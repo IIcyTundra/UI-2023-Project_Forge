@@ -452,7 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d327ed8c75c64d940abd8fad8264c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawners: []
+  spawners:
+  - {fileID: 1732687554}
+  - {fileID: 1294771501}
+  - {fileID: 1433712460}
 --- !u!1 &398268376
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +677,8 @@ Transform:
   - {fileID: 1656548240}
   - {fileID: 1268606408}
   - {fileID: 1732687553}
+  - {fileID: 1294771500}
+  - {fileID: 1433712459}
   - {fileID: 1246859923}
   - {fileID: 1606064342}
   - {fileID: 781300935}
@@ -2805,7 +2810,7 @@ PrefabInstance:
     - target: {fileID: 1349076926295301438, guid: bfefb7fc1e9126748bfb3003de215a9d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367299096910024281, guid: bfefb7fc1e9126748bfb3003de215a9d,
         type: 3}
@@ -4646,6 +4651,481 @@ PrefabInstance:
       addedObject: {fileID: 1179455017}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b11f7579ac383d48a8e34dd4d5b0648, type: 3}
+--- !u!1 &1294771499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1294771500}
+  - component: {fileID: 1294771501}
+  m_Layer: 0
+  m_Name: Ai Spawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1294771500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294771499}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.667189, y: 2.0958052, z: -21.374018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 530677027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1294771501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294771499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a746ef034d374934ca8e42907c796477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <canSpawn>k__BackingField: 1
+  <spawnForward>k__BackingField: 1
+  <forwardDistance>k__BackingField: 0
+  spawnOffset: {x: 0, y: 0, z: 0}
+  waves:
+  - interval: 3
+    spawnAmount: 3
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 5
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 8
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 15
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 20
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 30
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 50
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  lastSpawned: {fileID: 0}
+  currentWave: 0
+  currentWaveSpawns: 0
 --- !u!1 &1310463519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,6 +5374,481 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1627954608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1433712458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433712459}
+  - component: {fileID: 1433712460}
+  m_Layer: 0
+  m_Name: Ai Spawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433712459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433712458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -67.216, y: -6.221, z: 1.005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 530677027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433712460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433712458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a746ef034d374934ca8e42907c796477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <canSpawn>k__BackingField: 1
+  <spawnForward>k__BackingField: 1
+  <forwardDistance>k__BackingField: 0
+  spawnOffset: {x: 0, y: 0, z: 0}
+  waves:
+  - interval: 3
+    spawnAmount: 3
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 5
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 8
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 15
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 20
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 30
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 50
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  lastSpawned: {fileID: 0}
+  currentWave: 0
+  currentWaveSpawns: 0
 --- !u!1 &1433947262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,7 +7141,7 @@ Transform:
   m_GameObject: {fileID: 1732687552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.995282, y: 2.7364678, z: -23.852438}
+  m_LocalPosition: {x: -1.8932409, y: -0.48, z: 29.03766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6245,7 +7200,19 @@ MonoBehaviour:
         m_Calls: []
     onWaveComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     poolIdentifiers:
     - poolIndex: 0
       prefabName: AI Test
@@ -6260,14 +7227,138 @@ MonoBehaviour:
     randomizeWaves: 0
     randomPools: 
   - interval: 3
-    spawnAmount: 10
+    spawnAmount: 8
     onSpawn:
       m_PersistentCalls:
         m_Calls: []
     onWaveComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 15
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 20
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
     - poolIndex: 0
       prefabName: AI Test
     - poolIndex: 0
@@ -6297,8 +7388,143 @@ MonoBehaviour:
         m_Calls: []
     onWaveComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    randomizeWaves: 0
+    randomPools: 
+  - interval: 3
+    spawnAmount: 50
+    onSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    onWaveComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 193032086}
+          m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+          m_MethodName: OnWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    poolIdentifiers:
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
+    - poolIndex: 0
+      prefabName: AI Test
     - poolIndex: 0
       prefabName: AI Test
     - poolIndex: 0
