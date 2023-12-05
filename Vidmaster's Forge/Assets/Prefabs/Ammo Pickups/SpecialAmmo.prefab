@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044736136990771}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4123144, y: 1.131, z: -2.1837027}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8070257908103169731
 MeshFilter:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daec045fcd8abfd41bc5458a113e8451, type: 2}
+  - {fileID: 2100000, guid: 5a74d71830a2d174da600720f6917d85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupBox: {fileID: 7262446359324861759}
-  ammoType: 2
-  ammoAmmount: 10
+  AmmoInfo: {fileID: 0}
+  AmmoGrabbed: {fileID: 0}
   rotationSpeed: 50
   floatSpeed: 0.5
   floatHeight: 0.25

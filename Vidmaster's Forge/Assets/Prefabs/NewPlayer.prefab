@@ -742,6 +742,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 3052176541075443692}
+    - target: {fileID: 8487115568460800273, guid: 771e54178cc2eba4a9f2116bb8f12e70,
+        type: 3}
+      propertyPath: swayCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -766,6 +771,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 3052176541075443692}
+    - target: {fileID: 2478621249337025054, guid: b6975c68e725e3c42a7ca882628888be,
+        type: 3}
+      propertyPath: swayCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6196965443338972719, guid: b6975c68e725e3c42a7ca882628888be,
         type: 3}
       propertyPath: m_Name
@@ -1064,6 +1074,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 3052176541075443692}
+    - target: {fileID: 4637307529750537108, guid: bc5c7506781ab584b979f6ae1f62feea,
+        type: 3}
+      propertyPath: swayCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6755501818870484846, guid: bc5c7506781ab584b979f6ae1f62feea,
         type: 3}
       propertyPath: m_Name
@@ -1148,6 +1163,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 3052176541075443692}
+    - target: {fileID: 2555520214073420070, guid: e590d408953d15f4e98d57af893dc7dc,
+        type: 3}
+      propertyPath: swayCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2654296022685897308, guid: e590d408953d15f4e98d57af893dc7dc,
         type: 3}
       propertyPath: m_LocalPosition.x

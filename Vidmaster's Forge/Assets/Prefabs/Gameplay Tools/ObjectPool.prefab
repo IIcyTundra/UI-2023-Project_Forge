@@ -68,3 +68,20 @@ MonoBehaviour:
     hideFlags: 0
     sequencialNaming: 1
     pooledObjects: []
+  - prefab: {fileID: 3489308873558082115, guid: 567ec159716d1994590b438ecb04e71f,
+      type: 3}
+    amount: 200
+    hideFlags: 0
+    sequencialNaming: 0
+    pooledObjects: []
+  - prefab: {fileID: 639211324805680365, guid: 24fd5fcbe75629c41adb614a571f4ced, type: 3}
+    amount: 1
+    hideFlags: 0
+    sequencialNaming: 0
+    pooledObjects: []
+  - prefab: {fileID: 1686598873260199125, guid: d6a22c5be709fff458396add718f8651,
+      type: 3}
+    amount: 20
+    hideFlags: 0
+    sequencialNaming: 0
+    pooledObjects: []

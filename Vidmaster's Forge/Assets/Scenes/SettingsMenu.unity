@@ -4487,31 +4487,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1417757360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6135352762463894791}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: PlayScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MainMenu
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 6135352762463894791}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: UnloadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SettingsMenu
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1417757360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4872,19 +4848,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1450346562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6135352762463894791}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: UnloadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SettingsMenu
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1450346562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7247,7 +7211,6 @@ GameObject:
   - component: {fileID: 2611924298051487842}
   - component: {fileID: 4193152122969517817}
   - component: {fileID: 6135352762463894790}
-  - component: {fileID: 6135352762463894791}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -7492,18 +7455,6 @@ MonoBehaviour:
   defaultMaster: 1
   defaultMusic: 1
   defaultSFX: 1
---- !u!114 &6135352762463894791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2169374337805135348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe15430b0b086194a87ba265e0927d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &7528111252653049817
 CanvasRenderer:
   m_ObjectHideFlags: 0

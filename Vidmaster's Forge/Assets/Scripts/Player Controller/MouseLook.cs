@@ -86,7 +86,7 @@ public class MouseLook
 
     public void UpdateCursorLock()
     {
-        //if the user set "lockCursor" we check & properly lock the cursos
+        //if the user set "lockCursor" we check & properly lock the cursor
         if (m_LockCursor)
         {
             InternalLockUpdate();
@@ -99,7 +99,7 @@ public class MouseLook
         {
             m_cursorIsLocked = false;
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && Time.timeScale != 0f)
         {
             m_cursorIsLocked = true;
         }

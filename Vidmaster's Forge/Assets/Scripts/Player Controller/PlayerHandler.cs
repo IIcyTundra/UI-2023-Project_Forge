@@ -87,12 +87,6 @@ public class PlayerHandler : MonoBehaviour
 
         // Move the character.
         m_Character.velocity = m_PlayerVelocity;
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SceneManager.LoadSceneAsync("SettingsMenu", LoadSceneMode.Additive);
-            m_MouseLook.m_LockCursor = false;
-        }
     }
 
 
